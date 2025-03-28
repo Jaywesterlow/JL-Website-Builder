@@ -1,61 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-    --terracotta: #B07D75;
-    --white: #fff;
-    --ivory: #F8F5F3;
-    --light-beige: #EFE7E5;
-    --black: #000;
-    --charcoal: #242423;
-    --slate-grey: #4B555C;
+  /* hex values */
+  --terracotta: #b07d75;
+  --white: #fff;
+  --ivory: #f8f5f3;
+  --light-beige: #efe7e5;
+  --black: #000;
+  --charcoal: #242423;
+  --slate-grey: #4b555c;
 
-    --body-gradient: linear-gradient(164deg, rgba(166,117,246,1) 0%, rgba(110,44,219,1) 34%, rgba(113,38,236,1) 85%);
-    --container-gradient: linear-gradient( 150deg, rgb(255, 255, 255, 1) 0%, rgba(246, 240, 255, 1) 100%);
+  /* rgb values */
+  --terracotta-rgb: 176, 125, 117;
+  --white-rgb: 255, 255, 255;
+  --ivory-rgb: 248, 245, 243;
+  --light-beige-rgb: 239, 231, 229;
+  --black-rgb: 0, 0, 0;
+  --charcoal-rgb: 36, 36, 35;
+  --slate-grey-rgb: 75, 85, 92;
 
-    --radius: 1.5rem;
-    --font-size-sm: 16px;
-    --font-size-md: 18px;
-    --font-size-lg: 40px;
-    --font-size-xl: 48px;
-    --font-size-xxl: 70px;
+  /* --radius: 1.5rem;
+  --font-size-sm: 16px;
+  --font-size-md: 18px;
+  --font-size-lg: 40px;
+  --font-size-xl: 48px;
+  --font-size-xxl: 70px;
 
-    --font-weight-reg: 400;
-    --font-weight-semi: 600;
-    --font-weight-bold: 700;
+  --font-weight-reg: 400;
+  --font-weight-semi: 600;
+  --font-weight-bold: 700; */
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    appearance: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-    height: 100%;
-    min-height: 100dvh;
+html, body {
+  height: 100%;
+  /* min-height: 100dvh; */
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  display: contents;
 }
 
 body {
-    background: var(--terracotta);
+  height: 100%;
+  background: var(--terracotta);
+  padding: 5%;
+
+  & a {
+    font-size: .75rem;
+  } 
+  
+  & p, label {
+    font-size: .8rem;
+  } 
+
+  @media (min-width: 768px) {
     padding: 0 5%;
 
-    @media (min-width: 768px) {
-      padding: 0 5%;
+    & p, a {
+      font-size: 1rem;
     }
-    
-    @media (min-width: 1024px) {
-      padding: 0 10%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 10%;
+
+    & p {
+      font-size: 1.125rem;
     }
-    
-    @media (min-width: 1440px) {
-      padding: 0 15%;
-    }
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 15%;
+  }
 }
-
-
