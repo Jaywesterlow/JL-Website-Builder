@@ -1,34 +1,66 @@
 <script>
   import { Link01 } from "$lib";
+
+  let {
+    margin = "0",
+    position = "static",
+    index = "1",
+    width = "100%",
+    placement = null
+  } = $props();
+
+  const derivedPosition = $derived(
+    width !== "100%" && placement ? "absolute" : "static"
+  );
+
+  const placementStyles = $derived(
+    (!placement || width === "100%") 
+      ? "" 
+      : placement === "left"
+        ? "left: 1rem"
+        : placement === "right"
+          ? "right: 1rem"
+          : placement === "center"
+            ? "left: 50%; transform: translateX(-50%)"
+            : ""
+  );
 </script>
 
-<header>
-  <a href=""><img src="/images/Logo-lauralisa.nl-wit.png" alt="LAURALISA logo" /></a>
+<nav 
+  style="
+    --margin: {margin}; 
+    --position: {derivedPosition}; 
+    --index: {index}; 
+    width: {width}; 
+    {placementStyles}
+  "
+>
+  <a href="/"><img src="/images/Logo-lauralisa.nl-wit.png" alt="LAURALISA logo" /></a>
   <Link01
     url={"/"}
     text={"Terug naar site"}
-    label={"Link terug naar de hoofdsite"}
-    
+    label={"Link terug naar hoofdsite"}
     color={"var(--light-beige)"}
     backgroundColor={"rgb(var(--light-beige-rgb), 0.3)"}
-    
     iconPosition={"right"}
     iconSize={"15px"}
-  ></Link01>
-
-</header>
+  />
+</nav>
 
 <style>
-  header {
+  nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 1rem 0 3rem 0;
+    gap: 1rem;
+    margin: var(--margin);
+    position: var(--position);
+    z-index: var(--index);
   }
 
-  header a img {
-    max-height: 3.5rem;
+  nav a img {
+    width: auto;
+    height: clamp(2.75rem, 4vw, 4rem);
+    object-fit: contain;
   }
-
-  
 </style>

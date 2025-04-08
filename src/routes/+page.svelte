@@ -1,97 +1,75 @@
 <script>
-  import { LoginHeader, Svg } from "$lib";
-  let currentSlide = 0;
-  
-  const handleSlideChange = (index) => {
-    currentSlide = index;
-  };
+  import { LoginHeader, Carousel, Language, Svg } from "$lib";
 </script>
 
-<LoginHeader />
-
 <main>
-
-  <article id="carousel-article">
-    <LoginHeader />
-    
-    
-    <figure>
-      <figcaption>Your carousel description here</figcaption>
-
-      <ul style="transform: translateX(-${currentSlide * 100}%)">
-        <li aria-label="1 of 3">
-          <img src="/path-to-image1.jpg" alt="Description 1" />
-        </li>
-        <li aria-label="2 of 3">
-          <img src="/path-to-image2.jpg" alt="Description 2" />
-        </li>
-        <li aria-label="3 of 3">
-          <img src="/path-to-image3.jpg" alt="Description 3" />
-        </li>
-      </ul>
-      
-      <nav>
-        <button 
-          class="carousel-dot" 
-          class:active={currentSlide === 0}
-          aria-label="Go to slide 1"
-          on:click={() => handleSlideChange(0)}
-        ></button>
-        <button 
-          class="carousel-dot" 
-          class:active={currentSlide === 1}
-          aria-label="Go to slide 2"
-          on:click={() => handleSlideChange(1)}
-        ></button>
-        <button 
-          class="carousel-dot" 
-          class:active={currentSlide === 2}
-          aria-label="Go to slide 3"
-          on:click={() => handleSlideChange(2)}
-        ></button>
-      </nav>
-    </figure>
-  </article>
-
-  <article id="login-article">
-    <h1>JL CMS <span>Login</span></h1>
-    <p>
-      Log in om toegang te krijgen tot de backend en je website eenvoudig te
-      beheren en bewerken.
-    </p>
-    <form action="/login" method="POST">
-      <label class="email-label" for="email">
-        <Svg
-          name="account"
-          margin="0 2px 0 0"
-          color={"var(--charcoal)"}
-          size={"1.3rem"}
-        />Email
-      </label>
-      <input type="email" id="email" name="email" required />
-
-      <label class="password-label" for="password">
-        <Svg
-          name="password"
-          margin="0 2px 0 0"
-          color={"var(--charcoal)"}
-          size={"1.3rem"}
-        />Wachtwoord
-      </label>
-      <input type="password" id="password" name="password" required />
-
-      <label>
-        <input type="checkbox" id="remember" name="remember" />
-        <span></span>
-        Remember me
-      </label>
-      <button type="submit">INLOGGEN</button>
-    </form>
-  </article>
+  <header>
+    <LoginHeader margin={"2rem 0 0 0"}/>
+  </header>
+  <!-- <div style="width: 100%; display: flex; justify-content: center;"><Language /></div> -->
+  <section>
+    <article id="carousel-article">
+      <LoginHeader width="95%" placement="center" index={"3"} />
+      <Carousel />
+    </article>
+  
+    <article id="login-article">
+      <h1>JL CMS <span>Login</span></h1>
+      <p>
+        Log in om <span>toegang te krijgen tot de backend en</span> je website eenvoudig te
+        beheren en bewerken.
+      </p>
+      <form action="/login" method="POST">
+        <label class="email-label" for="email">
+          <Svg
+            name="account"
+            margin="0 2px 0 0"
+            color={"var(--charcoal)"}
+            size={"1.3rem"}
+          />Email
+        </label>
+        <input type="email" id="email" name="email" required />
+  
+        <label class="password-label" for="password">
+          <Svg
+            name="password"
+            margin="0 2px 0 0"
+            color={"var(--charcoal)"}
+            size={"1.3rem"}
+          />Wachtwoord
+        </label>
+        <input type="password" id="password" name="password" required />
+  
+        <label>
+          <input type="checkbox" id="remember" name="remember" />
+          <span></span>
+          Remember me
+        </label>
+        <button type="submit">INLOGGEN</button>
+      </form>
+    </article>
+  </section>
+  
+  
 </main>
 
 <style>
   main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      margin-top: 2rem;
+
+      & header {
+        display: none;
+      }
+    }
+  } 
+
+  main section {
     background-color: var(--light-beige);
     width: 100%;
     padding: .5rem;
@@ -99,36 +77,52 @@
     box-shadow: 0 10px 30px rgb(var(--black-rgb), 0.2);
     display: flex;
     gap: 2rem;
-  }
-
-  main article#carousel-article {
-    display: none;
-
-    @media (min-width: 1024px){
-      display: block;
-      flex: 0 1 50%;
-      background-color: rgb(var(--charcoal-rgb), 0.3);
+    
+    @media (min-width: 768px) {
+      min-height: clamp(500px, 60vh, 700px);
+      max-width: clamp(700px, 90%, 1200px);
     }
   }
 
-  
+  section #carousel-article {
+    display: none;
 
-  
+    @media (min-width: 768px){
+      display: block;
+      position: relative;
+      flex: 0 1 50%;
+
+      min-height: 3.5rem;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
   /* ----------------------------------- */
 
-  main article#login-article {
+  section #login-article {
     padding: .5rem;
+    align-self: center;
 
-    @media (min-width: 1024px){
+    @media (min-width: 768px){
       flex: 0 1 50%;
+    }
+    
+    @media (max-width: 768px){
+      /* padding: 1rem 4rem; */
+      padding: clamp(0.5rem, 2cqi, 1rem) clamp(0.5rem, 4cqi, 2rem);
     }
   }
 
   #login-article h1 {
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 12vw, 2.8rem);
     font-weight: 600;
     color: var(--charcoal);
     margin-bottom: 1rem;
+    max-width: 100%;
+    white-space: nowrap;
+
   }
 
   #login-article h1 span {
@@ -151,6 +145,12 @@
   #login-article p {
     font-weight: 600;
     margin-bottom: 2rem;
+
+    & span {
+      @media (min-width: 768px) and (max-width: 1024px) {
+        display: none;
+      }
+    }
   }
 
   #login-article form {
@@ -167,10 +167,17 @@
   #login-article form input[type="password"] {
     display: block;
     margin-bottom: 2rem;
+    padding: 0 .75rem;
     width: 100%;
     height: 2rem;
     border-radius: 2rem;
     border: 2px solid var(--slate-grey);
+    transition: border-color 0.2s ease;
+  }
+
+  #login-article form input[type="email"]:focus,
+  #login-article form input[type="password"]:focus {
+    border-color: var(--light-beige);
   }
 
   #login-article form label:has(input[type="checkbox"]) {
