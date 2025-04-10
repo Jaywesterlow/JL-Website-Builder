@@ -59,6 +59,7 @@
     transform: translateX(-50%);
     color: var(--caption-color);
     text-align: center;
+    min-width: 75%;
   }
 
   figure ul {

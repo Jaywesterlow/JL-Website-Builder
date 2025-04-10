@@ -6,7 +6,8 @@
     position = "static",
     index = "1",
     width = "100%",
-    placement = null
+    placement = null,
+    text = ""
   } = $props();
 
   const derivedPosition = $derived(
@@ -38,7 +39,7 @@
   <a href="/"><img src="/images/Logo-lauralisa.nl-wit.png" alt="LAURALISA logo" /></a>
   <Link01
     url={"/"}
-    text={"Terug naar site"}
+    text={text}
     label={"Link terug naar hoofdsite"}
     color={"var(--light-beige)"}
     backgroundColor={"rgb(var(--light-beige-rgb), 0.3)"}

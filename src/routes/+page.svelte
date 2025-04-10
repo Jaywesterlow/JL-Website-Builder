@@ -1,55 +1,57 @@
 <script>
   import { LoginHeader, Carousel, Language, Svg } from "$lib";
+  import translations from '$lib/json/login.translations.json';
+  import { currentLang } from '$lib/stores/language.js';
 </script>
 
 <main>
+  
   <header>
-    <LoginHeader margin={"2rem 0 0 0"}/>
+    <LoginHeader text={translations['header-return'][$currentLang]} margin={"2rem 0 0 0"}/>
   </header>
-  <div style="width: 100%; display: flex; justify-content: center;"><Language /></div>
+  
   <section>
     <article id="carousel-article">
-      <LoginHeader width="95%" placement="center" index={"3"} />
-      <Carousel caption="Prestaties, toegankelijkheid en gebruiksgemak in één."/>
+      <LoginHeader text={translations['header-return'][$currentLang]} width="95%" placement="center" index={"3"} />
+      <Carousel caption={translations['carousel-desc'][$currentLang]}/>
     </article>
   
     <article id="login-article">
-      <h1>JL CMS <span>Login</span></h1>
-      <p>
-        Log in om <span>toegang te krijgen tot de backend en</span> je website eenvoudig te
-        beheren en bewerken.
-      </p>
+      <h1>JL CMS <span>{translations['form-title'][$currentLang]}</span></h1>
+      <p>{translations['form-desc'][$currentLang]}</p>
+      
       <form action="/login" method="POST">
         <label class="email-label" for="email">
-          <Svg
-            name="account"
-            margin="0 2px 0 0"
-            color={"var(--charcoal)"}
-            size={"1.3rem"}
-          />Email
+          <Svg name="account" margin="0 2px 0 0" color={"var(--charcoal)"} size={"1.3rem"}/>
+          {translations['form-email'][$currentLang]}
         </label>
+        
         <input type="email" id="email" name="email" required />
   
         <label class="password-label" for="password">
-          <Svg
-            name="password"
-            margin="0 2px 0 0"
-            color={"var(--charcoal)"}
-            size={"1.3rem"}
-          />Wachtwoord
+          <Svg name="password" margin="0 2px 0 0" color={"var(--charcoal)"} size={"1.3rem"}/>
+          {translations['form-password'][$currentLang]}
         </label>
+        
         <input type="password" id="password" name="password" required />
   
         <label>
           <input type="checkbox" id="remember" name="remember" />
           <span></span>
-          Remember me
+          {translations['form-remember-me'][$currentLang]}
         </label>
-        <button type="submit">INLOGGEN</button>
+        
+        <button type="submit">{translations['form-button'][$currentLang]}</button>
       </form>
     </article>
   </section>
-  
+
+  <aside style="
+  display: flex;
+  justify-content: end;
+  margin-top: .5rem;
+
+  "><Language /></aside>
   
 </main>
 
@@ -59,15 +61,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 
     @media (min-width: 768px) {
-      margin-top: 2rem;
 
       & header {
         display: none;
       }
     }
-  } 
+  }
+
+  main header {
+    width: 100%;
+  }
 
   main section {
     background-color: var(--light-beige);
@@ -76,10 +82,21 @@
     border-radius: 1rem;
     box-shadow: 0 10px 30px rgb(var(--black-rgb), 0.2);
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     
     @media (min-width: 768px) {
       min-height: clamp(500px, 60vh, 700px);
+      max-width: clamp(700px, 90%, 1200px);
+    }
+  }
+
+  main aside {
+    display: flex;
+    justify-content: end;
+    margin-top: .5rem;
+    width: 100%;
+
+    @media (min-width: 768px) {
       max-width: clamp(700px, 90%, 1200px);
     }
   }
@@ -104,25 +121,28 @@
   section #login-article {
     padding: .5rem;
     align-self: center;
+    max-width: 100%;
 
     @media (min-width: 768px){
       flex: 0 1 50%;
     }
     
     @media (max-width: 768px){
-      /* padding: 1rem 4rem; */
       padding: clamp(0.5rem, 2cqi, 1rem) clamp(0.5rem, 4cqi, 2rem);
     }
   }
 
   #login-article h1 {
-    font-size: clamp(1.8rem, 12vw, 2.8rem);
+    font-size: clamp(1rem, 8vw, 2rem);
     font-weight: 600;
     color: var(--charcoal);
     margin-bottom: 1rem;
     max-width: 100%;
     white-space: nowrap;
 
+    @media (min-width: 768px) {
+        font-size: clamp(1.2rem, 10vw, 2rem);
+    }
   }
 
   #login-article h1 span {
@@ -145,12 +165,6 @@
   #login-article p {
     font-weight: 600;
     margin-bottom: 2rem;
-
-    & span {
-      @media (min-width: 768px) and (max-width: 1024px) {
-        display: none;
-      }
-    }
   }
 
   #login-article form {

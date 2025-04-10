@@ -1,0 +1,55 @@
+{
+  "form-title": {
+    "nl": "Inloggen",
+    "en": "Login",
+    "de": "Anmelden"
+  },
+  
+  "form-desc": {
+    "nl": "Log in om website eenvoudig te beheren en bewerken.",
+    "en": "Log in to easily manage and edit the website.",
+    "de": "Anmelden, um die Website einfach zu verwalten und zu bearbeiten."
+  },
+
+  "form-email": {
+    "nl": "E-mailadres",
+    "en": "Email address",
+    "de": "E-Mail-Adresse"
+  },
+
+  "form-password": {
+    "nl": "Wachtwoord",
+    "en": "Password",
+    "de": "Passwort"
+  },
+
+  "form-remember-me": {
+    "nl": "Onthoud mij",
+    "en": "Remember me",
+    "de": "Erinnere dich an mich"
+  },
+
+  "form-forgot-password": {
+    "nl": "Wachtwoord vergeten",
+    "en": "Forgot password",
+    "de": "Passwort vergessen"
+  },
+
+  "form-button": {
+    "nl": "INLOGGEN",
+    "en": "LOG IN",
+    "de": "EINLOGGEN"
+  },
+
+  "header-return": {
+    "nl": "Terug naar site",
+    "en": "Back to site",
+    "de": "Zurück zur Seite"
+  },
+
+  "carousel-desc": {
+    "nl": "Prestaties, toegankelijkheid en gebruiksgemak in één.",
+    "en": "Performance, accessibility, and ease of use in one.",
+    "de": "Leistung, Zugänglichkeit und Benutzerfreundlichkeit in einem."
+  }
+}

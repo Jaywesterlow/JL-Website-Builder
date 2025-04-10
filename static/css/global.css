@@ -19,17 +19,6 @@
   --black-rgb: 0, 0, 0;
   --charcoal-rgb: 36, 36, 35;
   --slate-grey-rgb: 75, 85, 92;
-
-  /* --radius: 1.5rem;
-  --font-size-sm: 16px;
-  --font-size-md: 18px;
-  --font-size-lg: 40px;
-  --font-size-xl: 48px;
-  --font-size-xxl: 70px;
-
-  --font-weight-reg: 400;
-  --font-weight-semi: 600;
-  --font-weight-bold: 700; */
 }
 
 * {
@@ -55,6 +44,7 @@ html {
 
 body {
   height: 100%;
+  min-height: 100vh;
   background: var(--terracotta);
   padding: 5%;
 
