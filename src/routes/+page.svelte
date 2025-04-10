@@ -6,11 +6,11 @@
   <header>
     <LoginHeader margin={"2rem 0 0 0"}/>
   </header>
-  <!-- <div style="width: 100%; display: flex; justify-content: center;"><Language /></div> -->
+  <div style="width: 100%; display: flex; justify-content: center;"><Language /></div>
   <section>
     <article id="carousel-article">
       <LoginHeader width="95%" placement="center" index={"3"} />
-      <Carousel />
+      <Carousel caption="Prestaties, toegankelijkheid en gebruiksgemak in één."/>
     </article>
   
     <article id="login-article">
