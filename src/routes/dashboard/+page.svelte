@@ -1,6 +1,6 @@
 <main>
   <h1>JL Website Builder</h1>
-  <a href="/login">klik hier om in te loggen</a>
+  <p>Ingelogd!</p>
 </main>
 
 <style>
