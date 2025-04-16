@@ -37,6 +37,7 @@
 
 <style>
   a {
+    font-size: clamp(0.5rem, calc(0.5rem + .5cqi), 1rem);
     position: relative;
     display: flex;
     align-items: center;
@@ -47,6 +48,7 @@
     color: var(--color);
     border-radius: var(--radius);
     transition: .2s all ease-in-out;
+    white-space: nowrap;
   }
 
   a:hover {
