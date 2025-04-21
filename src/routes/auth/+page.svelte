@@ -21,7 +21,7 @@
       <h1>JL CMS <span>{translations['form-title'][$currentLang]}</span></h1>
       <p>{translations['form-desc'][$currentLang]}</p>
       
-      <form action="/login" method="post" use:enhance>
+      <form action="/auth" method="post" use:enhance>
         <label class="email-label" for="email">
           <Svg name="account" margin="0 2px 0 0" color={"var(--charcoal)"} size={"1.3rem"}/>
           {translations['form-email'][$currentLang]}

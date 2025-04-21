@@ -11,15 +11,6 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    color: var(--white);
-
-    a {
-      text-decoration: underline;
-      color: inherit;
-
-      &:active {
-        color: var(--light-beige);
-      }
-    }
+    color: var(--charcoal);
   }
 </style>

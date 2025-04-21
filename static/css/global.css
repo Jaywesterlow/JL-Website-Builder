@@ -45,7 +45,7 @@ html {
 body {
   height: 100%;
   min-height: 100vh;
-  background: var(--terracotta);
+  background: var(--ivory);
   padding: 5%;
 
   @media (min-width: 1440px) {
