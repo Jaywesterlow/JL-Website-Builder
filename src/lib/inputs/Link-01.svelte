@@ -6,8 +6,8 @@
     url = "#",
     text = "Button text",
     label = "Enter Aria-Label",
-    color = "var(--light-beige)",
-    backgroundColor = "rgb(var(--light-beige-rgb), 0.3)",
+    color = "var(--blush-veil)",
+    backgroundColor = "rgb(var(--blush-veil-rgb), 0.3)",
     padding = ".25rem .75rem",
     radius = "2rem",
     
@@ -52,8 +52,6 @@
   }
 
   a:hover {
-    /* outline: 2px solid var(--color);
-    outline-offset: -2px; */
     box-shadow: inset 0 0 0 1.2px var(--color);
     transition: .2s all ease-in-out;
   }

@@ -11,6 +11,6 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    color: var(--charcoal);
+    color: var(--deep-charcoal);
   }
 </style>

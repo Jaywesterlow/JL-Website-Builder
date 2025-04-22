@@ -25,15 +25,15 @@
   {#if $currentLang === 'nl'}
     <Svg name="dutch-icon" size={"1.5rem"} />
     Nederlands
-    <Svg name="chevron" color={"var(--charcoal)"} size={"1.1rem"} rotation={"90deg"}/>
+    <Svg name="chevron" color={"var(--deep-charcoal)"} size={"1.1rem"} rotation={"90deg"}/>
   {:else if $currentLang === 'en'}
     <Svg name="english-icon" size={"1.5rem"} />
     English
-    <Svg name="chevron" color={"var(--charcoal)"} size={"1.1rem"} rotation={"90deg"}/>
+    <Svg name="chevron" color={"var(--deep-charcoal)"} size={"1.1rem"} rotation={"90deg"}/>
   {:else}
     <Svg name="german-icon" size={"1.5rem"} />
     Deutsch
-    <Svg name="chevron" color={"var(--charcoal)"} size={"1.1rem"} rotation={"90deg"}/>
+    <Svg name="chevron" color={"var(--deep-charcoal)"} size={"1.1rem"} rotation={"90deg"}/>
   {/if}
 
   </button>
@@ -79,7 +79,7 @@
     border-radius: .25rem;
     overflow: hidden;
     border: 1px solid var(--light-grey);
-    background-color: var(--white);
+    background-color: var(--pure-white);
     box-shadow: 0 .25rem .5rem rgb(var(--black-rgb), 0.2);
     list-style: none;
   }
@@ -89,7 +89,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--light-beige);
+      background-color: var(--blush-veil);
       transition: .2s all ease-in-out;
     }
   }

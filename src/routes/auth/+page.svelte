@@ -23,14 +23,14 @@
       
       <form action="/auth" method="post" use:enhance>
         <label class="email-label" for="email">
-          <Svg name="account" margin="0 2px 0 0" color={"var(--charcoal)"} size={"1.3rem"}/>
+          <Svg name="account" margin="0 2px 0 0" color={"var(--deep-charcoal)"} size={"1.3rem"}/>
           {translations['form-email'][$currentLang]}
         </label>
         
         <input type="email" id="email" name="email" required />
   
         <label class="password-label" for="password">
-          <Svg name="password" margin="0 2px 0 0" color={"var(--charcoal)"} size={"1.3rem"}/>
+          <Svg name="password" margin="0 2px 0 0" color={"var(--deep-charcoal)"} size={"1.3rem"}/>
           {translations['form-password'][$currentLang]}
         </label>
         
@@ -76,7 +76,7 @@
   }
 
   main section {
-    background-color: var(--light-beige);
+    background-color: var(--blush-veil);
     width: 100%;
     padding: .5rem;
     border-radius: 1rem;
@@ -135,7 +135,7 @@
   #login-article h1 {
     font-size: clamp(1rem, 8vw, 2rem);
     font-weight: 600;
-    color: var(--charcoal);
+    color: var(--deep-charcoal);
     margin-bottom: 1rem;
     max-width: 100%;
     white-space: nowrap;
@@ -146,7 +146,7 @@
   }
 
   #login-article h1 span {
-    color: var(--terracotta);
+    color: var(--copper-blush);
     position: relative;
     margin-left: 0.5rem;
 
@@ -158,7 +158,7 @@
       height: 80%;
       width: 0.2rem;
       border-radius: 1rem;
-      background-color: var(--charcoal);
+      background-color: var(--deep-charcoal);
     }
   }
 
@@ -183,13 +183,13 @@
     width: 100%;
     height: 2rem;
     border-radius: .6rem;
-    border: 2px solid var(--slate-grey);
+    border: 2px solid var(--slate-blue);
     transition: border-color 0.2s ease;
   }
 
   #login-article form input[type="email"]:focus,
   #login-article form input[type="password"]:focus {
-    border-color: var(--light-beige);
+    border-color: var(--blush-veil);
   }
 
   #login-article form label:has(input[type="checkbox"]) {
@@ -214,17 +214,17 @@
     left: 2px;
     height: 1.1rem;
     width: 1.1rem;
-    border: 2px solid var(--charcoal);
+    border: 2px solid var(--deep-charcoal);
     border-radius: 0.4rem;
     transition: all 0.2s ease-in-out;
   }
 
   #login-article form label:has(input[type="checkbox"]) span:hover {
-    background-color: var(--charcoal);
+    background-color: var(--deep-charcoal);
   }
 
   #login-article form input[type="checkbox"]:checked + span {
-    background-color: var(--charcoal);
+    background-color: var(--deep-charcoal);
   }
 
   #login-article form input[type="checkbox"]:checked + span:after {
@@ -241,7 +241,7 @@
     top: 0px;
     width: 5px;
     height: 10px;
-    border: solid var(--white);
+    border: solid var(--pure-white);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
@@ -252,8 +252,8 @@
     width: 100%;
     height: calc(2rem + 2px);
     border-radius: .6rem;
-    background: var(--slate-grey);
-    color: var(--white);
+    background: var(--slate-blue);
+    color: var(--pure-white);
     border: none;
     cursor: pointer;
     transition: .2s all ease-in-out;

@@ -41,8 +41,8 @@
     url={"/"}
     text={text}
     label={"Link terug naar hoofdsite"}
-    color={"var(--light-beige)"}
-    backgroundColor={"rgb(var(--light-beige-rgb), 0.3)"}
+    color={"var(--blush-veil)"}
+    backgroundColor={"rgb(var(--blush-veil-rgb), 0.3)"}
     iconPosition={"right"}
     iconSize={"15px"}
   />

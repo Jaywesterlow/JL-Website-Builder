@@ -1,21 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-  /* hex values */
-  --terracotta: #b07d75;
+  /* Hex values */
+
+  /* White values */
   --white: #fff;
   --ivory: #f8f5f3;
   --light-beige: #efe7e5;
-  --black: #000;
-  --charcoal: #242423;
-  --slate-grey: #4b555c;
   --light-grey: #ccc;
 
-  /* rgb values */
+  /*? new */
+  --pure-white: #FFF;
+  --soft-linen: #F8F5F3;
+  --blush-veil: #EFE7E5;
+  --rose-dust: #E2CFCB;
+
+  /* Pink values */
+  --terracotta: #b07d75;
+
+  /*? new */
+  --warm-clay: #D1B1A7;
+  --copper-blush: #B07D75;
+  /* --terracotta: #A05F54; */
+  --cocoa-brown: #7C4A43;
+
+  /* Gray values */
+  --slate-grey: #4b555c;
+
+  /*? new */
+  --slate-blue: #4B555C;
+  --misty-steel: #6A747C;
+  --cloudy-sky: #A2AAB1;
+  --charcoal-fog: #353C40;
+
+  /* Black values */
+  --black: #000;
+  --charcoal: #242423;
+ 
+  /*? new */
+  --pure-black: #000;
+  --graphite-black: #181818;
+  --deep-charcoal: #242423;
+
+  /* RGB values */
   --terracotta-rgb: 176, 125, 117;
   --white-rgb: 255, 255, 255;
   --ivory-rgb: 248, 245, 243;
-  --light-beige-rgb: 239, 231, 229;
+  --blush-veil-rgb: 239, 231, 229;
   --black-rgb: 0, 0, 0;
   --charcoal-rgb: 36, 36, 35;
   --slate-grey-rgb: 75, 85, 92;
