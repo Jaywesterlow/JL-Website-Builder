@@ -4,40 +4,24 @@
   /* Hex values */
 
   /* White values */
-  --white: #fff;
-  --ivory: #f8f5f3;
-  --light-beige: #efe7e5;
-  --light-grey: #ccc;
-
-  /*? new */
   --pure-white: #FFF;
   --soft-linen: #F8F5F3;
   --blush-veil: #EFE7E5;
   --rose-dust: #E2CFCB;
 
   /* Pink values */
-  --terracotta: #b07d75;
-
-  /*? new */
   --warm-clay: #D1B1A7;
   --copper-blush: #B07D75;
-  /* --terracotta: #A05F54; */
+  --terracotta: #A05F54;
   --cocoa-brown: #7C4A43;
 
   /* Gray values */
-  --slate-grey: #4b555c;
-
-  /*? new */
   --slate-blue: #4B555C;
   --misty-steel: #6A747C;
   --cloudy-sky: #A2AAB1;
   --charcoal-fog: #353C40;
 
   /* Black values */
-  --black: #000;
-  --charcoal: #242423;
- 
-  /*? new */
   --pure-black: #000;
   --graphite-black: #181818;
   --deep-charcoal: #242423;
