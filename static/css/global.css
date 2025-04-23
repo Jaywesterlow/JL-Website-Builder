@@ -7,9 +7,10 @@
   --pure-white: #FFF;
   --soft-linen: #F8F5F3;
   --blush-veil: #EFE7E5;
-  --rose-dust: #E2CFCB;
+  --rose: #E2CFCB;
 
   /* Pink values */
+  --dusty-rose: #E6A6A1;
   --warm-clay: #D1B1A7;
   --copper-blush: #B07D75;
   --terracotta: #A05F54;
@@ -60,12 +61,7 @@ html {
 body {
   height: 100%;
   min-height: 100vh;
-  background: var(--ivory);
-  padding: 5%;
-
-  @media (min-width: 1440px) {
-    padding: 0 15%;
-  }
+  background: var(--dusty-rose);
 }
 
 h1 {

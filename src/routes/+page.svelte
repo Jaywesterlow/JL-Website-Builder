@@ -12,6 +12,11 @@
     align-items: center;
     gap: 1rem;
     color: var(--deep-charcoal);
+    padding: 5%;
+
+    @media (min-width: 1440px) {
+      padding: 0 15%;
+    }
 
     a {
       text-decoration: underline;

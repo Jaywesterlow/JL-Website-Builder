@@ -63,6 +63,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5%;
+
+    @media (min-width: 1440px) {
+      padding: 0 15%;
+    }
 
     @media (min-width: 768px) {
       header {
