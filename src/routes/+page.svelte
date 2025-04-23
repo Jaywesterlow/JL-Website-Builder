@@ -1,6 +1,6 @@
 <main>
   <h1>JL Website Builder</h1>
-  <a href="/login">klik hier om in te loggen</a>
+  <a href="/auth">klik hier om in te loggen</a>
 </main>
 
 <style>
@@ -11,14 +11,19 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    color: var(--white);
+    color: var(--deep-charcoal);
+    padding: 5%;
+
+    @media (min-width: 1440px) {
+      padding: 0 15%;
+    }
 
     a {
       text-decoration: underline;
       color: inherit;
 
       &:active {
-        color: var(--light-beige);
+        color: var(--blush-veil);
       }
     }
   }
