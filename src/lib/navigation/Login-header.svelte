@@ -1,5 +1,5 @@
 <script>
-  import { Link01 } from "$lib";
+  import { LoginLink } from "$lib";
 
   let {
     margin = "0",
@@ -37,7 +37,7 @@
   "
 >
   <a href="/"><img src="/images/Logo-lauralisa.nl-wit.png" alt="LAURALISA logo" /></a>
-  <Link01
+  <LoginLink
     url={"/"}
     text={text}
     label={"Link terug naar hoofdsite"}
