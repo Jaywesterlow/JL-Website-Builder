@@ -180,7 +180,7 @@
     li a {
       font-size: 1.5rem;
       font-weight: 200;
-      color: var(--pure-white);
+      color: var(--blush-veil);
       transition: all 0.3s ease-in-out;
       display: flex;
       align-items: center;
@@ -188,17 +188,17 @@
       width: fit-content;
 
       span {
-        color: var(--pure-white);
+        color: var(--blush-veil);
         transition: all 0.3s ease-in-out;
       }
 
       &:hover,
       &.active {
-        color: var(--blush-veil);
+        color: var(--pure-white);
         margin-left: 1rem;
 
         span {
-          color: var(--blush-veil);
+          color: var(--pure-white);
         }
       }
     }
