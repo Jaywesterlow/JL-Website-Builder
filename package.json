@@ -22,7 +22,7 @@
     "@sveltejs/kit": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
     "@types/node": "^22.13.14",
-    "drizzle-kit": "^0.30.6",
+    "drizzle-kit": "^0.31.0",
     "eslint": "^9.18.0",
     "eslint-plugin-svelte": "^3.0.0",
     "globals": "^16.0.0",
@@ -31,7 +31,9 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
-    "drizzle-orm": "^0.40.1",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.42.0",
+    "mysql": "^2.18.1",
     "mysql2": "^3.14.0"
   }
 }
