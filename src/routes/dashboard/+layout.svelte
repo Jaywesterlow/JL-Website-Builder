@@ -218,13 +218,13 @@
   main article section {
     position: absolute;
     inset: 0;
-    padding: 4rem 1.5rem;
+    padding: clamp(3.25rem, 10vw, 6rem) clamp(1.625rem, 5vw, 3.25rem) clamp(2rem, 6vw, 4.5rem);
     width: 100%;
     height: 100%;
     overflow: auto;
 
     @media (min-width: 1024px) {
-      padding: 1.25rem;
+      padding: clamp(2.625rem, 8vw, 4.5rem) clamp(2rem, 6vw, 4rem) clamp(2rem, 5vw, 3.25rem);
     }
   }
 
