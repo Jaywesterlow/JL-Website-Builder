@@ -5,24 +5,23 @@
     // button props
     text = "Button text",
     label = "Enter Aria-Label",
-    color = "var(--blush-veil)",
-    backgroundColor = "rgb(var(--blush-veil-rgb), 0.3)",
+    color = "var(--warm-clay)",
+    backgroundColor = "var(--pure-white)",
     padding = ".25rem .75rem",
-    radius = "2rem",
-    
-    // icon props
-    iconPosition = "",
-    iconSize = "20px",
-    iconRotation = iconPosition === "left" ? "180deg" : "0deg"
+    radius = "var(--radius-sm)",
   } = $props();
 
 </script>
 
 <button
   aria-label={label}
-  style="--color: {color}; --bg-color: {backgroundColor}; --padding: {padding}; --radius: {radius};"
+  style="
+  --color: {color};
+  --bg-color: {backgroundColor};
+  --padding: {padding};
+  --radius: {radius};"
 >
-
+{text}
 </button>
 
 <style>
@@ -36,13 +35,16 @@
     padding: var(--padding);
     background-color: var(--bg-color);
     color: var(--color);
+    border: .15rem solid var(--color);
     border-radius: var(--radius);
     transition: .2s all ease-in-out;
     white-space: nowrap;
   }
 
-  a:hover {
-    box-shadow: inset 0 0 0 1.2px var(--color);
+  button:hover {
+    color: var(--bg-color);
+    background-color: var(--color);
     transition: .2s all ease-in-out;
+    cursor: pointer;
   }
 </style>

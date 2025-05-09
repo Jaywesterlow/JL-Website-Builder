@@ -35,7 +35,12 @@
   --black-rgb: 0, 0, 0;
   --charcoal-rgb: 36, 36, 35;
   --slate-grey-rgb: 75, 85, 92;
+  
+  /* border-radius values */
+  --radius-lg: 15px;
+  --radius-sm: 10px;
 }
+
 
 * {
   margin: 0;
