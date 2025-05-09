@@ -168,6 +168,7 @@
       width: 80%;
     }
   }
+  
 
   main nav ul {
     list-style: none;
