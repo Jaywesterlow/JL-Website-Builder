@@ -1,12 +1,11 @@
-import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/mysql2';
 import mysql from 'mysql2/promise';
+import * as schema from './schema';
+import { env } from '$env/dynamic/private';
+if (!env.DATABASE_URL) throw new Error('DATABASE_URL is not set');
+const client = await mysql.createConnection(env.DATABASE_URL);
 
-const pool = mysql.createPool({
-  uri: process.env.DATABASE_URL,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+export const db = drizzle(client, {
+  schema,
+  mode: 'default'
 });
-
-export const db = drizzle(pool);

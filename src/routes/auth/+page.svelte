@@ -1,135 +1,61 @@
 <script>
   import { LoginHeader, Carousel, Language, Svg } from "$lib";
-  import translations from "$lib/json/login.translations.json";
-  import { currentLang } from "$lib/stores/language.js";
-  import { goto } from '$app/navigation';
-
-
-  
-  //import { actions } from './+page.server.js';
-  let email = "";
-  let password = "";
-  let remember = false;
-  let errorMessage = "";
-
-  // Form submission handler
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission
-
-    const data = new FormData(event.target);
-
-    try {
-      // This should be the correct form submission to your server
-      const response = await fetch("/login", {
-        method: "POST",
-        body: new URLSearchParams(data),
-      });
-
-      const result = await response.json();
-
-      console.log(result.status);
-
-      if (result.status === 200) {
-        // Handle successful login (e.g., redirect to dashboard)
-        alert("Login successful!");
-        // You can redirect to another page here
-        goto('/dashboard');
-      } else {
-        // Handle error
-        errorMessage = result.data || "An error occurred";
-      }
-    } catch (error) {
-      // Handle unexpected errors
-      errorMessage = "An unexpected error occurred. Please try again later.";
-    }
-  };
+  import translations from '$lib/json/login.translations.json';
+  import { currentLang } from '$lib/stores/language.js';
+  import { enhance } from '$app/forms';
 </script>
 
 <main>
+  
   <header>
-    <LoginHeader
-      text={translations["header-return"][$currentLang]}
-      margin={"2rem 0 0 0"}
-    />
+    <LoginHeader text={translations['header-return'][$currentLang]} margin={"2rem 0 0 0"}/>
   </header>
-
+  
   <section>
     <article id="carousel-article">
-      <LoginHeader
-        text={translations["header-return"][$currentLang]}
-        width="95%"
-        placement="center"
-        index={"3"}
-      />
-      <Carousel caption={translations["carousel-desc"][$currentLang]} />
+      <LoginHeader text={translations['header-return'][$currentLang]} width="95%" placement="center" index={"3"} />
+      <Carousel caption={translations['carousel-desc'][$currentLang]}/>
     </article>
-
+  
     <article id="login-article">
-      <h1>JL CMS <span>{translations["form-title"][$currentLang]}</span></h1>
-      <p>{translations["form-desc"][$currentLang]}</p>
-
-      <!-- Login form -->
-      <form on:submit={handleSubmit}>
+      <h1>JL CMS <span>{translations['form-title'][$currentLang]}</span></h1>
+      <p>{translations['form-desc'][$currentLang]}</p>
+      
+      <form action="/auth" method="post" use:enhance>
         <label class="email-label" for="email">
-          <Svg
-            name="account"
-            margin="0 2px 0 0"
-            color={"var(--charcoal)"}
-            size={"1.3rem"}
-          />
-          {translations["form-email"][$currentLang]}
+          <Svg name="account" margin="0 2px 0 0" color={"var(--deep-charcoal)"} size={"1.3rem"}/>
+          {translations['form-email'][$currentLang]}
         </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          bind:value={email}
-          required
-        />
-
+        
+        <input type="email" id="email" name="email" required />
+  
         <label class="password-label" for="password">
-          <Svg
-            name="password"
-            margin="0 2px 0 0"
-            color={"var(--charcoal)"}
-            size={"1.3rem"}
-          />
-          {translations["form-password"][$currentLang]}
+          <Svg name="password" margin="0 2px 0 0" color={"var(--deep-charcoal)"} size={"1.3rem"}/>
+          {translations['form-password'][$currentLang]}
         </label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          bind:value={password}
-          required
-        />
-
+        
+        <input type="password" id="password" name="password" required />
+  
         <label>
-          <input
-            type="checkbox"
-            id="remember"
-            name="remember"
-            bind:checked={remember}
-          />
+          <input type="checkbox" id="remember" name="remember" />
           <span></span>
-          {translations["form-remember-me"][$currentLang]}
+          {translations['form-remember-me'][$currentLang]}
         </label>
-
-        <button type="submit">
-          {translations["form-button"][$currentLang]}
-        </button>
+        
+        <button type="submit">{translations['form-button'][$currentLang]}</button>
       </form>
-
-      <!-- Display error message if any -->
-      {#if errorMessage}
-        <div class="error-message">{errorMessage}</div>
-      {/if}
     </article>
   </section>
 
-  <aside><Language /></aside>
-</main>
+  <aside style="
+  display: flex;
+  justify-content: end;
+  margin-top: .5rem;
+
+  "><Language /></aside>
   
+</main>
+
 <style>
   main {
     height: 100%;
