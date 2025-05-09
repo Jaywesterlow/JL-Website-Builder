@@ -20,7 +20,7 @@
 
     try {
       // This should be the correct form submission to your server
-      const response = await fetch("/login", {
+      const response = await fetch("/auth", {
         method: "POST",
         body: new URLSearchParams(data),
       });
