@@ -130,210 +130,216 @@
   <aside><Language /></aside>
 </main>
   
-  <style>
-    main {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+<style>
+  main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
 
-      @media (min-width: 768px) {
-        header {
-          display: none;
-        }
+    @media (min-width: 1440px) {
+      padding: 0 15%;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        display: none;
       }
     }
+  }
 
-    main header {
-      width: 100%;
+  main header {
+    width: 100%;
+  }
+
+  main section {
+    background-color: var(--blush-veil);
+    width: 100%;
+    padding: .5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgb(var(--black-rgb), 0.2);
+    display: flex;
+    gap: 1rem;
+    
+    @media (min-width: 768px) {
+      min-height: clamp(500px, 60vh, 700px);
+      max-width: clamp(700px, 90%, 1200px);
     }
+  }
 
-    main section {
-      background-color: var(--light-beige);
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 30px rgb(var(--black-rgb), 0.2);
-      display: flex;
-      gap: 1rem;
+  main aside {
+    display: flex;
+    justify-content: end;
+    margin-top: .5rem;
+    width: 100%;
 
-      @media (min-width: 768px) {
-        min-height: clamp(500px, 60vh, 700px);
-        max-width: clamp(700px, 90%, 1200px);
-      }
+    @media (min-width: 768px) {
+      max-width: clamp(700px, 90%, 1200px);
     }
+  }
 
-    main aside {
-      display: flex;
-      justify-content: end;
-      margin-top: 0.5rem;
-      width: 100%;
+  section #carousel-article {
+    display: none;
 
-      @media (min-width: 768px) {
-        max-width: clamp(700px, 90%, 1200px);
-      }
-    }
-
-    section #carousel-article {
-      display: none;
-
-      @media (min-width: 768px) {
-        display: block;
-        position: relative;
-        flex: 0 1 50%;
-
-        min-height: 3.5rem;
-        top: 0;
-        left: 0;
-        width: 100%;
-      }
-    }
-
-    /* ----------------------------------- */
-
-    section #login-article {
-      padding: 0.5rem;
-      align-self: center;
-      max-width: 100%;
-
-      @media (min-width: 768px) {
-        flex: 0 1 50%;
-      }
-
-      @media (max-width: 768px) {
-        padding: clamp(0.5rem, 2cqi, 1rem) clamp(0.5rem, 4cqi, 2rem);
-      }
-    }
-
-    #login-article h1 {
-      font-size: clamp(1rem, 8vw, 2rem);
-      font-weight: 600;
-      color: var(--charcoal);
-      margin-bottom: 1rem;
-      max-width: 100%;
-      white-space: nowrap;
-
-      @media (min-width: 768px) {
-        font-size: clamp(1.2rem, 10vw, 2rem);
-      }
-    }
-
-    #login-article h1 span {
-      color: var(--terracotta);
-      position: relative;
-      margin-left: 0.5rem;
-
-      &::before {
-        content: "";
-        position: absolute;
-        left: -0.7rem;
-        top: 10%;
-        height: 80%;
-        width: 0.2rem;
-        border-radius: 1rem;
-        background-color: var(--charcoal);
-      }
-    }
-
-    #login-article p {
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-
-    #login-article form label {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    #login-article form input[type="email"],
-    #login-article form input[type="password"] {
+    @media (min-width: 768px){
       display: block;
-      margin-bottom: 2rem;
-      padding: 0 0.75rem;
-      width: 100%;
-      height: 2rem;
-      border-radius: 0.6rem;
-      border: 2px solid var(--slate-grey);
-      transition: border-color 0.2s ease;
-    }
-
-    #login-article form input[type="email"]:focus,
-    #login-article form input[type="password"]:focus {
-      border-color: var(--light-beige);
-    }
-
-    #login-article form label:has(input[type="checkbox"]) {
-      display: flex;
-      align-items: center;
       position: relative;
-      padding-left: 24px;
-      cursor: pointer;
-      font-weight: 600;
-    }
+      flex: 0 1 50%;
 
-    #login-article form input[type="checkbox"] {
-      position: absolute;
-      opacity: 0;
-      cursor: pointer;
-      height: 0;
-      width: 0;
+      min-height: 3.5rem;
+      top: 0;
+      left: 0;
+      width: 100%;
     }
+  }
 
-    #login-article form label:has(input[type="checkbox"]) span {
-      position: absolute;
-      left: 2px;
-      height: 1.1rem;
-      width: 1.1rem;
-      border: 2px solid var(--charcoal);
-      border-radius: 0.4rem;
-      transition: all 0.2s ease-in-out;
+  /* ----------------------------------- */
+
+  section #login-article {
+    padding: .5rem;
+    align-self: center;
+    max-width: 100%;
+
+    @media (min-width: 768px){
+      flex: 0 1 50%;
     }
-
-    #login-article form label:has(input[type="checkbox"]) span:hover {
-      background-color: var(--charcoal);
+    
+    @media (max-width: 768px){
+      padding: clamp(0.5rem, 2cqi, 1rem) clamp(0.5rem, 4cqi, 2rem);
     }
+  }
 
-    #login-article form input[type="checkbox"]:checked + span {
-      background-color: var(--charcoal);
+  #login-article h1 {
+    font-size: clamp(1rem, 8vw, 2rem);
+    font-weight: 600;
+    color: var(--deep-charcoal);
+    margin-bottom: 1rem;
+    max-width: 100%;
+    white-space: nowrap;
+
+    @media (min-width: 768px) {
+        font-size: clamp(1.2rem, 10vw, 2rem);
     }
+  }
 
-    #login-article form input[type="checkbox"]:checked + span:after {
-      opacity: 1;
-      transition: 0.15s ease-in-out;
-    }
+  #login-article h1 span {
+    color: var(--copper-blush);
+    position: relative;
+    margin-left: 0.5rem;
 
-    #login-article form label:has(input[type="checkbox"]) span:after {
+    &::before {
       content: "";
       position: absolute;
-      opacity: 0;
-      transition: 0.15s ease-in-out;
-      left: 4px;
-      top: 0px;
-      width: 5px;
-      height: 10px;
-      border: solid var(--white);
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
+      left: -0.7rem;
+      top: 10%;
+      height: 80%;
+      width: 0.2rem;
+      border-radius: 1rem;
+      background-color: var(--deep-charcoal);
     }
+  }
 
-    #login-article form button {
-      display: block;
-      margin-bottom: 2rem;
-      width: 100%;
-      height: calc(2rem + 2px);
-      border-radius: 0.6rem;
-      background: var(--slate-grey);
-      color: var(--white);
-      border: none;
-      cursor: pointer;
-      transition: 0.2s all ease-in-out;
+  #login-article p {
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
 
-      &:hover {
+
+  #login-article form label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  #login-article form input[type="email"],
+  #login-article form input[type="password"] {
+    display: block;
+    margin-bottom: 2rem;
+    padding: 0 .75rem;
+    width: 100%;
+    height: 2rem;
+    border-radius: .6rem;
+    border: 2px solid var(--slate-blue);
+    transition: border-color 0.2s ease;
+  }
+
+  #login-article form input[type="email"]:focus,
+  #login-article form input[type="password"]:focus {
+    border-color: var(--blush-veil);
+  }
+
+  #login-article form label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  #login-article form input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  #login-article form label:has(input[type="checkbox"]) span {
+    position: absolute;
+    left: 2px;
+    height: 1.1rem;
+    width: 1.1rem;
+    border: 2px solid var(--deep-charcoal);
+    border-radius: 0.4rem;
+    transition: all 0.2s ease-in-out;
+  }
+
+  #login-article form label:has(input[type="checkbox"]) span:hover {
+    background-color: var(--deep-charcoal);
+  }
+
+  #login-article form input[type="checkbox"]:checked + span {
+    background-color: var(--deep-charcoal);
+  }
+
+  #login-article form input[type="checkbox"]:checked + span:after {
+    opacity: 1;
+    transition: 0.15s ease-in-out;
+  }
+
+  #login-article form label:has(input[type="checkbox"]) span:after {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    transition: 0.15s ease-in-out;
+    left: 4px;
+    top: 0px;
+    width: 5px;
+    height: 10px;
+    border: solid var(--pure-white);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  #login-article form button {
+    display: block;
+    margin-bottom: 2rem;
+    width: 100%;
+    height: calc(2rem + 2px);
+    border-radius: .6rem;
+    background: var(--slate-blue);
+    color: var(--pure-white);
+    border: none;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+
+    &:hover {
         opacity: 0.9;
-        transition: 0.2s all ease-in-out;
-      }
+        transition: .2s all ease-in-out;
     }
-  </style>
+  }
+</style>
