@@ -39,6 +39,10 @@
   /* border-radius values */
   --radius-lg: 15px;
   --radius-sm: 10px;
+
+  /* shadows */
+  --shadow-lg: 0 5px 20px 0 rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 5px 1 rgba(0, 0, 0, 0.18);
 }
 
 
