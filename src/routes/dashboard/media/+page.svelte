@@ -30,46 +30,55 @@
   }
 </script>
 
-<article>
-  <h1>Mediabibliotheek</h1>
-  
-  <section>
-    <p>Kies bestanden om te uploaden</p>
-    <PrimaryButton
+<main>
+
+  <article>
+    <h1>Mediabibliotheek</h1>
+    <section>
+      <p>Kies bestanden om te uploaden</p>
+      <PrimaryButton
       text = "Kies uw bestanden"
       label = "kies bestanden"
       color = "var(--warm-clay)"
       padding = ".25rem .75rem"
-    />
-  </section>
+      />
+    </section>
+  </article>
   
-</article>
-
-<Toolbar>
-  <li slot="search">
-    <Search bind:value={search} on:search={(e) => handleSearch(e.detail.value)} />
-  </li>
-
-  <li slot="filter">
-    <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
-  </li>
-
-  <!-- <li slot="sort">
-    <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
-  </li> -->
-</Toolbar>
-
+  <Toolbar>
+    <li slot="search">
+      <Search bind:value={search} on:search={(e) => handleSearch(e.detail.value)} />
+      </li>
+      
+      <li slot="filter">
+        <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
+      </li>
+      
+      <!-- <li slot="sort">
+        <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
+        </li> -->
+      </Toolbar>
+    </main>
 
 <style>
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 1024px) {
+      gap: 2rem;
+    }
+  }
+
   article {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 1rem;
 
     @media (min-width: 1024px) {
       gap: 2rem;
-      margin-bottom: 2rem;
     }
   }
 
