@@ -3,7 +3,7 @@
 
     let search = '';
     let selectedFilter = '';
-    let selectedSort = 'recent';
+    // let selectedSort = 'recent';
 
   const filters = [
     { value: 'images', label: 'Afbeeldingen' },
@@ -11,11 +11,11 @@
     { value: 'videos', label: 'Video’s' }
   ];
 
-  const sortOptions = [
-    { value: 'recent', label: 'Recent' },
-    { value: 'alphabetical', label: 'Alfabetisch' },
-    { value: 'popular', label: 'Meest gebruikt' }
-  ];
+  // const sortOptions = [
+  //   { value: 'recent', label: 'Recent' },
+  //   { value: 'alphabetical', label: 'Alfabetisch' },
+  //   { value: 'popular', label: 'Meest gebruikt' }
+  // ];
 
   function handleSearch(term) {
     search = term;
@@ -25,9 +25,9 @@
     selectedFilter = value;
   }
 
-  function handleSort(value) {
-    selectedSort = value;
-  }
+  // function handleSort(value) {
+  //   selectedSort = value;
+  // }
 </script>
 
 <main>

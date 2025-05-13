@@ -13,16 +13,18 @@
     background-color: var(--soft-linen);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     @media (min-width: 1024px) {
-      display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
     }
   }
 
   ul :global(li) {
-    padding: 0.5rem;
     flex: 1;
   }
 

@@ -113,12 +113,11 @@
   label {
     display: block;
     font-weight: 300;
-    font-size: clamp(0.85rem, 1vw + 0.5rem, 1.25rem);
+    font-size: clamp(0.85rem, 1vw + .5rem, 1.25rem);
   }
 
   button {
     font-weight: 300;
-    border-radius: var(--radius-sm);
   }
 
   .select-container {
@@ -166,7 +165,7 @@
   .select-list button {
     width: 100%;
     text-align: left;
-    padding: 0.5rem;
+    padding: 1rem;
     border: none;
     background: transparent;
     cursor: pointer;
@@ -178,7 +177,7 @@
   }
 
   .select-list button.selected {
-    background-color: var(--dusty-rose);
-    font-weight: bold;
+    background-color: var(--soft-linen);
+    font-weight: 500;
   }
 </style>
