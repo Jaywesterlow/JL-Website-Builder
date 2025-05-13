@@ -10,12 +10,15 @@
     padding: 1.25rem 1.5rem;
     margin: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: var(--soft-linen);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
+
+    @media (min-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
   ul :global(li) {

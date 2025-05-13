@@ -113,7 +113,7 @@
   label {
     display: block;
     font-weight: 300;
-    font-size: 1.25rem;
+    font-size: clamp(0.85rem, 1vw + 0.5rem, 1.25rem);
   }
 
   button {
