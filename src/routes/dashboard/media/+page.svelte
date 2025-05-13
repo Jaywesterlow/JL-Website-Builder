@@ -1,5 +1,33 @@
 <script>
-  import { PrimaryButton } from "$lib";
+  import { PrimaryButton, Toolbar, Search, Filter, Sort } from "$lib";
+
+    let search = '';
+    let selectedFilter = '';
+    let selectedSort = 'recent';
+
+  const filters = [
+    { value: 'images', label: 'Afbeeldingen' },
+    { value: 'documents', label: 'Documenten' },
+    { value: 'videos', label: 'Video’s' }
+  ];
+
+  const sortOptions = [
+    { value: 'recent', label: 'Recent' },
+    { value: 'alphabetical', label: 'Alfabetisch' },
+    { value: 'popular', label: 'Meest gebruikt' }
+  ];
+
+  function handleSearch(term) {
+    search = term;
+  }
+
+  function handleFilter(value) {
+    selectedFilter = value;
+  }
+
+  function handleSort(value) {
+    selectedSort = value;
+  }
 </script>
 
 <article>
@@ -17,14 +45,31 @@
   
 </article>
 
+<Toolbar>
+  <li slot="search">
+    <Search bind:value={search} on:search={(e) => handleSearch(e.detail.value)} />
+  </li>
+
+  <li slot="filter">
+    <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
+  </li>
+
+  <!-- <li slot="sort">
+    <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
+  </li> -->
+</Toolbar>
+
+
 <style>
   article {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-bottom: 1rem;
 
     @media (min-width: 1024px) {
       gap: 2rem;
+      margin-bottom: 2rem;
     }
   }
 
@@ -45,6 +90,22 @@
       background-clip: padding-box;
       transform: translateZ(0);
       border-width: 0.9px;
+    }
+  }
+
+  article section p {
+    font-weight: 600;
+    
+
+    @media (min-width: 1024px) {
+      &::after {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: .75rem;
+        content: "of";
+        font-weight: 400;
+      }
     }
   }
 </style>

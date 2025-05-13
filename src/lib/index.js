@@ -11,6 +11,7 @@ export { default as LoginLink } from './inputs/Login-link.svelte'
 
 // Dashboard / inputs
 export { default as PrimaryButton } from './inputs/Primary-button.svelte'
+export { default as Select } from './inputs/Select.svelte'
 export { default as Toolbar } from './navigation/Toolbar.svelte'
 export { default as Search } from './navigation/Search.svelte'
 export { default as Sort } from './navigation/Toolbar.svelte'
