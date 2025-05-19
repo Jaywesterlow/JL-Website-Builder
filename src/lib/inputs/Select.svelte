@@ -113,7 +113,7 @@
   label {
     display: block;
     font-weight: 300;
-    font-size: clamp(0.85rem, 1vw + .5rem, 1.25rem);
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem);
   }
 
   button {
@@ -127,7 +127,7 @@
 
   .select-toggle {
     width: 100%;
-    padding: 0.5rem;
+    padding: .35rem;
     border: 2px solid var(--terracotta);
     border-radius: var(--radius-sm);
     background-color: var(--pure-white);

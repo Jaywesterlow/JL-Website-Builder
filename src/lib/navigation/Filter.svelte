@@ -9,6 +9,6 @@
   {options}
   bind:selected
   placeholder="Alle types"
-  label="Filter op bestandstype"
+  label="Filter"
   on:change={(e) => onChange(e.detail)}
 />

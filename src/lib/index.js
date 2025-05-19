@@ -9,6 +9,9 @@ export { default as LoginLink } from './inputs/Login-link.svelte'
 
 // Dasboard
 
+// Dashboard / Navigation
+export { default as Pagination } from './navigation/Pagination.svelte'
+
 // Dashboard / inputs
 export { default as PrimaryButton } from './inputs/Primary-button.svelte'
 export { default as Select } from './inputs/Select.svelte'

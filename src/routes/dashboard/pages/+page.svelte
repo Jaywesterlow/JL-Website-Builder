@@ -1,5 +1,5 @@
 <script>
-  import { PrimaryButton, Toolbar, Search, Filter, Sort, Svg } from "$lib";
+  import { PrimaryButton, Toolbar, Search, Filter, Sort, Pagination, Svg } from "$lib";
 
     let search = '';
     let selectedFilter = '';
@@ -28,6 +28,13 @@
   // function handleSort(value) {
   //   selectedSort = value;
   // }
+
+  let currentPage = 1;
+
+  function handlePageChange(event) {
+    currentPage = event.detail;
+    // Fetch new data or update view accordingly
+  }
 </script>
 
 <main>
@@ -225,17 +232,23 @@
         </ul>
       </article>
   </section>
-
+  
+  <Pagination
+  totalItems={50}
+  itemsPerPage={10}
+  {currentPage}
+  on:pageChange={handlePageChange} />
 </main>
+
 
 <style>
   main {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 
     @media (min-width: 1024px) {
-      gap: 2rem;
+      gap: 3rem;
     }
   }
 
@@ -243,27 +256,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+
+    & h1 {
+      font-size: 2rem; /* Added to reduce heading size */
+    }
 
     @media (min-width: 1024px) {
       justify-content: flex-start;
-      gap: 2rem;
+      gap: 3rem;
     }
   }
 
   main > p {
-    font-size: .75rem;
+    font-size: .7rem;
     font-weight: 300;
   }
 
   main section.table {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(42vw, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     
     @media (min-width: 1024px) {
       display: block;
-      padding: .5rem 0;
       box-shadow: var(--shadow-sm);
       border-radius: var(--radius-lg);
       border: 2px solid var(--blush-veil);
@@ -279,18 +294,19 @@
 
     @media (min-width: 1024px) {
       display: flex;
+      padding: 1rem 0;
       font-weight: 500;
-      padding-bottom: .5rem;
+      font-size: .8rem;
 
       & li {
         flex: 1;
-        padding-left: 4vw;
+        padding-left: 2vw;
       }
     }
   }
 
   main section.table article {
-    padding: .75rem;
+    padding: 1rem;
     background: var(--soft-linen);
     border-radius: var(--radius-sm);
     border: 2px solid var(--terracotta);
@@ -334,7 +350,7 @@
       
       & li {
         flex: 1;
-        padding-left: 4vw;
+        padding-left: 2vw;
       }
     }
   }
@@ -342,27 +358,27 @@
   main section.table article ul:first-child li {
     
     &.title {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
 
     }
     
     &.url {
-      font-size:1rem;
+      font-size:.875rem;
       
     }
     
     &.status {
-      font-size:1rem;
+      font-size:.875rem;
       position: absolute;
       display: flex;
       align-items: center;
       gap: .5rem;
-      right: .5rem;
-      top: .75rem;
+      right: .25rem;
+      top: .25rem;
     }
     
     &.date {
-      font-size:1.25rem;
+      font-size:1rem;
 
     }
     
@@ -372,7 +388,7 @@
       &.status,
       &.date {
         position: static;
-        font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem);
+        font-size: clamp(0.5rem, 1vw + 0.4rem, .875rem);
       }
     }
   }
@@ -403,6 +419,22 @@
     font-size: clamp(0.75rem, 0.625rem + 0.625vw, 1rem);
     color: var(--dusty-rose);
     text-decoration: underline;
+  }
+
+  main footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    z-index: 5;
+
+    &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: clamp(2rem, 6vw, 4.5rem);
+        width: 100%;
+        background: var(--pure-white);
+    }
   }
 
 </style>
