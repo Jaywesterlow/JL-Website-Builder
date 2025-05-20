@@ -50,17 +50,21 @@
 <style>
   footer {
     position: sticky;
-    bottom: 0;
+    bottom: -1.25rem;
     width: calc(100% + 2rem);
     margin-left: -1rem;
     z-index: 4;
-    
+
+    @media (min-width: 1024px) {
+      bottom: -2.25rem;
+    }
+
     &::after {
       content: '';
       border-radius: 0 0 1rem 1rem;
       position: absolute;
       display: block;
-      height: clamp(2rem, 6vw, 4.5rem);
+      height: calc(clamp(2rem, 6vw, 4.5rem) - 1.1rem);
       width: 100%;
       background: var(--pure-white);
       z-index: 4;
