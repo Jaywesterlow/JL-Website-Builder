@@ -1,13 +1,15 @@
 <script>
-  export let totalItems = 0;
-  export let itemsPerPage = 10;
-  export let currentPage = 1;
+  let {
+    totalItems = 0,
+    itemsPerPage = 10,
+    currentPage = 1
+  } = $props();
 
   // Emit event when page changes
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
 
-  $: totalPages = Math.ceil(totalItems / itemsPerPage);
+  let totalPages = $derived(Math.ceil(totalItems / itemsPerPage));
 
   function goToPage(page) {
     if (page >= 1 && page <= totalPages && page !== currentPage) {
@@ -15,7 +17,7 @@
     }
   }
 
-  $: pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  let pages = $derived(Array.from({ length: totalPages }, (_, page) => page + 1));
 </script>
 
 <footer>
@@ -23,23 +25,21 @@
   <nav>
     <ul>
       <li>
-        <button on:click={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
+        <button onclick={() => goToPage(currentPage - 1)} disabled={currentPage === 1}>
           Prev
         </button>
       </li>
       
       {#each pages as page}
       <li>
-        <button
-        class:active={page === currentPage}
-        on:click={() => goToPage(page)}>
-        {page}
+        <button class:active={page === currentPage} onclick={() => goToPage(page)}>
+          {page}
         </button>
       </li>
       {/each}
       
       <li>
-        <button on:click={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>
+        <button onclick={() => goToPage(currentPage + 1)} disabled={currentPage === totalPages}>
           Next
         </button>
       </li>
