@@ -232,4 +232,32 @@
   main section.transitioning {
     overflow: hidden;
   }
+
+/* Scrollbar */
+/* @supports (scrollbar-color: var(--warm-clay) var(--rose)) {
+  * {
+    scrollbar-color: var(--warm-clay) var(--rose);
+    scrollbar-width: thin;
+  }
+} */
+
+::-webkit-scrollbar {
+  width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px var(--cloudy-sky); 
+  border-radius: 10px;
+  margin-block: 1rem;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--rose); 
+  border-radius: var(--radius-lg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--rose-rgb), 0.8);
+}
+
 </style>

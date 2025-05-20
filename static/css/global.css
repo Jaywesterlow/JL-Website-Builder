@@ -28,13 +28,25 @@
   --deep-charcoal: #242423;
 
   /* RGB values */
-  --terracotta-rgb: 176, 125, 117;
-  --white-rgb: 255, 255, 255;
-  --ivory-rgb: 248, 245, 243;
+  --pure-white-rgb: 255, 255, 255;
+  --soft-linen-rgb: 248, 245, 243;
   --blush-veil-rgb: 239, 231, 229;
-  --black-rgb: 0, 0, 0;
-  --charcoal-rgb: 36, 36, 35;
-  --slate-grey-rgb: 75, 85, 92;
+  --rose-rgb: 226, 207, 203;
+  
+  --dusty-rose-rgb: 230, 166, 161;
+  --warm-clay-rgb: 209, 177, 167;
+  --copper-blush-rgb: 176, 125, 117;
+  --terracotta-rgb: 160, 95, 84;
+  --cocoa-brown-rgb: 124, 74, 67;
+  
+  --slate-blue-rgb: 75, 85, 92;
+  --misty-steel-rgb: 106, 116, 124;
+  --cloudy-sky-rgb: 162, 170, 177;
+  --charcoal-fog-rgb: 53, 60, 64;
+  
+  --pure-black-rgb: 0, 0, 0;
+  --graphite-black-rgb: 24, 24, 24;
+  --deep-charcoal-rgb: 36, 36, 35;
   
   /* border-radius values */
   --radius-lg: 15px;
