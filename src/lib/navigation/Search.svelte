@@ -1,9 +1,6 @@
 <script>
   import { Svg } from '$lib';
   import { createEventDispatcher } from 'svelte';
-  // export let placeholder = "Zoeken...";
-  // export let value = "";
-  // export let live = false;
 
   let {
     placeholder = "Zoeken...",
