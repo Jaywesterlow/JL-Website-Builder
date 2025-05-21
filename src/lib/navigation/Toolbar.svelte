@@ -1,7 +1,19 @@
+<script>
+    let { search, filter, sort } = $props();
+</script>
+
 <ul>
-  <slot name="search" />
-  <slot name="filter" />
-  <slot name="sort" />
+  {#if search}
+    <li>{@render search()}</li>
+  {/if}
+
+  {#if filter}
+    <li>{@render filter()}</li>
+  {/if}
+
+  {#if sort}
+    <li>{@render sort()}</li>
+  {/if}
 </ul>
 
 <style>

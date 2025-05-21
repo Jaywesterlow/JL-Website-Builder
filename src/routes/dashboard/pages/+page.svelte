@@ -1,9 +1,9 @@
 <script>
   import { PrimaryButton, Toolbar, Search, Filter, Sort, Pagination, Svg } from "$lib";
 
-    let search = '';
-    let selectedFilter = '';
-    // let selectedSort = 'recent';
+    let search = $state("");
+    let selectedFilter = $state("");
+    // let selectedSort = $state("recent");
 
   const filters = [
     { value: 'images', label: 'Afbeeldingen' },
@@ -29,11 +29,10 @@
   //   selectedSort = value;
   // }
 
-  let currentPage = 1;
+  let currentPage = $state(1);
 
   function handlePageChange(event) {
     currentPage = event.detail;
-    // Fetch new data or update view accordingly
   }
 </script>
 
@@ -48,18 +47,19 @@
     />
   </section>
 
-  <Toolbar>
-    <li slot="search">
-      <Search bind:value={search} on:search={(e) => handleSearch(e.detail.value)} />
-    </li>
-  
-    <li slot="filter">
+  <Toolbar>    
+    {#snippet search()}
+      <Search bindvalue={search} onsearch={(search) => handleSearch(search.detail.value)} />
+    {/snippet}
+      
+    {#snippet filter()}
       <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
-    </li>
+    {/snippet}
+
+    <!-- {#snippet sort()}
+    <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
+    {/snippet} -->
     
-    <!-- <li slot="sort">
-      <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
-    </li> -->
   </Toolbar>
 
   <p>Pagina weergeeft 10 van de 24</p>
