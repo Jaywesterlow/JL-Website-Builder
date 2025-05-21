@@ -1,20 +1,23 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
 
-  export let options = [];
-  export let selected = '';
-  export let placeholder = 'Kies een optie';
-  export let label = 'Filter op bestandstype';
+  let {
+    options = [],
+    selected = '',
+    placeholder = 'Kies een optie',
+    label = '',
+  } = $props();
 
+  // Define custom dropdown select component
   const dispatch = createEventDispatcher();
-  let isOpen = false;
-  let highlightedIndex = -1;
-
-  let dropdown; // reference to the DOM element
+  let isOpen = $state(false);
+  let highlightedIndex = $state(-1);
+  let dropdown = $state();
 
   function toggle() {
     isOpen = !isOpen;
   }
+
 
   function selectOption(option) {
     selected = option.value;
@@ -38,10 +41,10 @@
     }
   }
 
-  // ✅ Only runs in the browser
+  // Close dropdown when clicking outside
   onMount(() => {
-    const handleClickOutside = (event) => {
-      if (dropdown && !dropdown.contains(event.target)) {
+    const handleClickOutside = (click) => {
+      if (dropdown && !dropdown.contains(click.target)) {
         isOpen = false;
       }
     };
@@ -68,8 +71,8 @@
       id="select-toggle"
       class="select-toggle"
       type="button"
-      on:click={toggle}
-      on:keydown={handleKeydown}
+      onclick={toggle}
+      onkeydown={handleKeydown}
       aria-haspopup="listbox"
       aria-expanded={isOpen}
     >
@@ -88,8 +91,8 @@
               type="button"
               class:selected={opt.value === selected}
               class:highlighted={i === highlightedIndex}
-              on:click={() => selectOption(opt)}
-              on:keydown={(e) => {
+              onclick={() => selectOption(opt)}
+              onkeydown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
                   selectOption(opt);
@@ -153,7 +156,7 @@
     border-radius: var(--radius-sm);
     background-color: var(--pure-white);
     z-index: 5;
-    max-height: 200px;
+    /* max-height: 200px; */
     overflow-y: auto;
     box-shadow: var(--shadow-lg);
   }
