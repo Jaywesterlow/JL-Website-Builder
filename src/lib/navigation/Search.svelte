@@ -1,13 +1,20 @@
 <script>
   import { Svg } from '$lib';
   import { createEventDispatcher } from 'svelte';
-  export let placeholder = "Zoeken...";
-  export let value = "";
-  export let live = false;
+  // export let placeholder = "Zoeken...";
+  // export let value = "";
+  // export let live = false;
+
+  let {
+    placeholder = "Zoeken...",
+    value = "",
+    live = false,
+  } = $props();
+
   const dispatch = createEventDispatcher();
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit(submit) {
+    submit.preventDefault();
     dispatch('search', { value });
   }
 
@@ -19,13 +26,13 @@
   }
 </script>
 
-<form on:submit={handleSubmit} role="search" aria-label="Zoekformulier">
+<form onsubmit={handleSubmit} role="search" aria-label="Zoekformulier">
   <label for="search-input">Zoeken</label>
   <input
     id="search-input"
     type="search"
     bind:value
-    on:input={handleInput}
+    oninput={handleInput}
     {placeholder}
     aria-label="Zoek"
   />
