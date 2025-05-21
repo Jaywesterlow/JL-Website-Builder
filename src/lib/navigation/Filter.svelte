@@ -13,6 +13,6 @@
   {options}
   bind:selected
   placeholder="Alle types"
-  label="{label}"
+  label={label}
   on:change={(e) => onChange(e.detail)}
 />
