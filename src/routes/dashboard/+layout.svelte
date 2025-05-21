@@ -1,8 +1,7 @@
 <script>
   import { Svg } from '$lib';
   import { fade, fly } from 'svelte/transition';
-  import { page } from '$app/stores';
-  import { navigating } from '$app/stores';
+  import { page, navigating } from '$app/stores';
 
   let isNavOpen = $state(false);
   let transitioning = $state(false);
