@@ -1,67 +1,93 @@
 <script>
-  import { PrimaryButton, Toolbar, Search, Filter, Sort } from "$lib";
+  import {
+    PrimaryButton,
+    Toolbar,
+    Search,
+    Filter,
+    Sort,
+    Pagination,
+  } from '$lib';
 
-    let search = '';
-    let selectedFilter = '';
-    // let selectedSort = 'recent';
+  // <!--* Toolbar variables
+  let search = $state('');
+  let selectedFilter = $state('');
 
+  // <!--* Toolbar filter options
   const filters = [
+    { value: 'all', label: 'Alle Types' },
     { value: 'images', label: 'Afbeeldingen' },
     { value: 'documents', label: 'Documenten' },
-    { value: 'videos', label: 'Video’s' }
+    { value: 'videos', label: 'Video’s' },
   ];
 
-  // const sortOptions = [
-  //   { value: 'recent', label: 'Recent' },
-  //   { value: 'alphabetical', label: 'Alfabetisch' },
-  //   { value: 'popular', label: 'Meest gebruikt' }
-  // ];
+  // <!--* Toolbar sort options
+  let sortOptions = ['Datum', 'Prioriteit', 'Meest gebruikt'];
+  let selectedSort = $state('Prioriteit');
 
+  // <!--* Toolbar search handler
   function handleSearch(term) {
     search = term;
   }
 
+  // <!--* Toolbar filter handler
   function handleFilter(value) {
     selectedFilter = value;
   }
 
-  // function handleSort(value) {
-  //   selectedSort = value;
+   // <!--* Toolbar sort handler
+  //   function handleSort(option) {
+  //   selectedSort = option;
   // }
+
+  // <!--* Pagination
+  let currentPage = $state(1);
+
+  function handlePageChange(event) {
+    currentPage = event.detail;
+  }
 </script>
-
 <main>
-
   <article>
     <h1>Mediabibliotheek</h1>
     <section>
       <p>Kies bestanden om te uploaden</p>
       <PrimaryButton
-      text = "Kies uw bestanden"
-      label = "kies bestanden"
-      color = "var(--warm-clay)"
-      padding = ".25rem .75rem"
+        text="Kies uw bestanden"
+        label="kies bestanden"
+        color="var(--warm-clay)"
+        padding=".25rem .75rem"
       />
     </section>
   </article>
-  
-  <Toolbar>
-    <li slot="search">
-      <Search bind:value={search} on:search={(e) => handleSearch(e.detail.value)} />
-      </li>
+
+  <Toolbar>    
+    {#snippet search()}
+      <Search bindvalue={search} onSearch={(search) => handleSearch(search.detail.value)} />
+    {/snippet}
       
-      <li slot="filter">
-        <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
-      </li>
-      
-      <!-- <li slot="sort">
-        <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
-        </li> -->
-      </Toolbar>
-    </main>
+    {#snippet filter()}
+      <Filter label="Type Bestand" options={filters} selected={selectedFilter} onChange={handleFilter} />
+    {/snippet}
+
+    {#snippet sort()}
+      <Sort options={sortOptions} bind:selected={selectedSort}/>
+    {/snippet}
+  </Toolbar>
+
+  <ul>
+    <li>card</li>
+    <li>card</li>
+    <li>card</li>
+  </ul>
+
+  <Pagination
+    totalItems={50}
+    itemsPerPage={10}
+    {currentPage}
+  on:pageChange={handlePageChange} />
+</main>
 
 <style>
-
   main {
     display: flex;
     flex-direction: column;
@@ -72,7 +98,7 @@
     }
   }
 
-  article {
+  main article {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -82,11 +108,11 @@
     }
   }
 
-  article section {
+  main article section {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    
+
     @media (min-width: 1024px) {
       padding: 2rem 0;
       align-items: center;
@@ -102,19 +128,35 @@
     }
   }
 
-  article section p {
+  main article section p {
     font-weight: 600;
-    
 
     @media (min-width: 1024px) {
       &::after {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: .75rem;
+        margin-top: 0.75rem;
         content: "of";
         font-weight: 400;
       }
     }
+  }
+
+  main ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  main ul li {
+    color: var(--pure-white);
+    background-color: var(--warm-clay);
+    height: 100px; /* ---------------------remove--------------------- */
+    border-radius: var(--radius-lg);
+    padding: 1rem;
   }
 </style>

@@ -1,8 +1,7 @@
 <script>
   import { Svg } from '$lib';
   import { fade, fly } from 'svelte/transition';
-  import { page } from '$app/stores';
-  import { navigating } from '$app/stores';
+  import { page, navigating } from '$app/stores';
 
   let isNavOpen = $state(false);
   let transitioning = $state(false);
@@ -232,4 +231,32 @@
   main section.transitioning {
     overflow: hidden;
   }
+
+/* Scrollbar */
+/* @supports (scrollbar-color: var(--warm-clay) var(--rose)) {
+  * {
+    scrollbar-color: var(--warm-clay) var(--rose);
+    scrollbar-width: thin;
+  }
+} */
+
+::-webkit-scrollbar {
+  width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px var(--cloudy-sky); 
+  border-radius: 10px;
+  margin-block: 1rem;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--rose); 
+  border-radius: var(--radius-lg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--rose-rgb), 0.8);
+}
+
 </style>

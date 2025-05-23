@@ -1,14 +1,18 @@
 <script>
   import { Select } from '$lib';
-  export let options = [];
-  export let selected = '';
-  export let onChange = () => {};
+
+  let {
+    options = [],
+    selected = '',
+    onChange = () => {},
+    label = 'Filter'
+  } =$props();
 </script>
 
 <Select
   {options}
   bind:selected
   placeholder="Alle types"
-  label="Filter op bestandstype"
+  label={label}
   on:change={(e) => onChange(e.detail)}
 />

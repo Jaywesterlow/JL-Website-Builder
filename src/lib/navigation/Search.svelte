@@ -1,13 +1,17 @@
 <script>
   import { Svg } from '$lib';
   import { createEventDispatcher } from 'svelte';
-  export let placeholder = "Zoeken...";
-  export let value = "";
-  export let live = false;
+
+  let {
+    placeholder = "Zoeken...",
+    value = "",
+    live = false,
+  } = $props();
+
   const dispatch = createEventDispatcher();
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit(submit) {
+    submit.preventDefault();
     dispatch('search', { value });
   }
 
@@ -19,13 +23,13 @@
   }
 </script>
 
-<form on:submit={handleSubmit} role="search" aria-label="Zoekformulier">
+<form onsubmit={handleSubmit} role="search" aria-label="Zoekformulier">
   <label for="search-input">Zoeken</label>
   <input
     id="search-input"
     type="search"
     bind:value
-    on:input={handleInput}
+    oninput={handleInput}
     {placeholder}
     aria-label="Zoek"
   />
@@ -43,12 +47,12 @@
   form label {
     margin-bottom: 0.5rem;
     font-weight: 300;
-  font-size: clamp(0.85rem, 1vw + 0.5rem, 1.25rem);
+    font-size: clamp(0.75rem, 1vw + 0.5rem, 1rem);
   }
 
   input {
     width: 100%;
-    padding: .5rem;
+    padding: .35rem;
     border: 2px solid var(--terracotta);
     border-radius: var(--radius-sm);
     background-color: var(--pure-white);
