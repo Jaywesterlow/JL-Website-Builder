@@ -6,27 +6,23 @@
     Filter,
     Sort,
     Pagination,
-  } from "$lib";
+  } from '$lib';
 
   // <!--* Toolbar variables
-  let search = $state("");
-  let selectedFilter = $state("");
-  // let selectedSort = $state("recent");
+  let search = $state('');
+  let selectedFilter = $state('');
 
   // <!--* Toolbar filter options
   const filters = [
-    { value: "all", label: "Alle Types" },
-    { value: "images", label: "Afbeeldingen" },
-    { value: "documents", label: "Documenten" },
-    { value: "videos", label: "Video’s" },
+    { value: 'all', label: 'Alle Types' },
+    { value: 'images', label: 'Afbeeldingen' },
+    { value: 'documents', label: 'Documenten' },
+    { value: 'videos', label: 'Video’s' },
   ];
 
   // <!--* Toolbar sort options
-  // const sortOptions = [
-  //   { value: 'recent', label: 'Recent' },
-  //   { value: 'alphabetical', label: 'Alfabetisch' },
-  //   { value: 'popular', label: 'Meest gebruikt' }
-  // ];
+  let sortOptions = ['Datum', 'Prioriteit', 'Meest gebruikt'];
+  let selectedSort = $state('Prioriteit');
 
   // <!--* Toolbar search handler
   function handleSearch(term) {
@@ -37,12 +33,11 @@
   function handleFilter(value) {
     selectedFilter = value;
   }
-  
-  // <!--* Toolbar sort handler
-  // function handleSort(value) {
-  //   selectedSort = value;
-  // }
 
+   // <!--* Toolbar sort handler
+  //   function handleSort(option) {
+  //   selectedSort = option;
+  // }
 
   // <!--* Pagination
   let currentPage = $state(1);
@@ -67,30 +62,19 @@
 
   <Toolbar>    
     {#snippet search()}
-      <Search bindvalue={search} onsearch={(search) => handleSearch(search.detail.value)} />
+      <Search bindvalue={search} onSearch={(search) => handleSearch(search.detail.value)} />
     {/snippet}
       
     {#snippet filter()}
-      <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
+      <Filter label="Type Bestand" options={filters} selected={selectedFilter} onChange={handleFilter} />
     {/snippet}
 
-    <!-- {#snippet sort()}
-    <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
-    {/snippet} -->
-    
+    {#snippet sort()}
+      <Sort options={sortOptions} bind:selected={selectedSort}/>
+    {/snippet}
   </Toolbar>
 
   <ul>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
     <li>card</li>
     <li>card</li>
     <li>card</li>
