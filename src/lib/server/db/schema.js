@@ -14,4 +14,8 @@ export const media = mysqlTable("media", {
   id: int("id").autoincrement().primaryKey(),
   userId: int("user_id").notNull(),
   media: varchar("media", { length: 255 }).notNull(),
+  filename: varchar("filename", { length: 255 }).notNull(),
+  mimeType: varchar("mime_type", { length: 100 }).notNull(),
+  size: int("size").notNull(),
+  created_at: timestamp("created_at").defaultNow(),
 });
