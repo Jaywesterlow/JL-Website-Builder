@@ -1,0 +1,1 @@
+ALTER TABLE `pages` RENAME COLUMN `published_at` TO `updated_at`;
