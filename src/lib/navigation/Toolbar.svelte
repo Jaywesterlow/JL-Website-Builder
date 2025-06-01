@@ -1,18 +1,18 @@
 <script>
-    let { search, filter, sort } = $props();
+    let { childA, childB, childC } = $props();
 </script>
 
 <ul>
-  {#if search}
-    <li>{@render search()}</li>
+  {#if childA}
+    <li>{@render childA()}</li>
   {/if}
 
-  {#if filter}
-    <li>{@render filter()}</li>
+  {#if childB}
+    <li>{@render childB()}</li>
   {/if}
 
-  {#if sort}
-    <li>{@render sort()}</li>
+  {#if childC}
+    <li>{@render childC()}</li>
   {/if}
 </ul>
 

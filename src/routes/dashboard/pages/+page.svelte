@@ -1,5 +1,5 @@
 <script>
-  import { PrimaryButton, Toolbar, Search, Filter, Sort, Pagination, Svg } from "$lib";
+  import { PrimaryLink, Toolbar, Search, Filter, Sort, Pagination, Svg } from "$lib";
 
     let search = $state("");
     let selectedFilter = $state("");
@@ -39,7 +39,8 @@
 <main>
   <section class="head">
     <h1>Pagina’s</h1>
-    <PrimaryButton
+    <PrimaryLink
+      href="./pages/new"
       text = "Pagina toevoegen"
       label = "Pagina toevoegen"
       color = "var(--warm-clay)"
@@ -47,16 +48,16 @@
     />
   </section>
 
-  <Toolbar>    
-    {#snippet search()}
+  <Toolbar>
+    {#snippet childA()}
       <Search bindvalue={search} onsearch={(search) => handleSearch(search.detail.value)} />
     {/snippet}
       
-    {#snippet filter()}
+    {#snippet childB()}
       <Filter options={filters} selected={selectedFilter} onChange={handleFilter} />
     {/snippet}
 
-    <!-- {#snippet sort()}
+    <!-- {#snippet childC()}
     <Sort options={sortOptions} selected={selectedSort} onChange={handleSort} />
     {/snippet} -->
     

@@ -1,16 +1,11 @@
 <script>
-  import {
-    PrimaryButton,
-    Toolbar,
-    Search,
-    Filter,
-    Sort,
-    Pagination,
-  } from '$lib';
+  import { PrimaryButton, Toolbar, Textfield, Sort } from '$lib';
 
-  // <!--* Toolbar variables
   let search = $state('');
   let selectedFilter = $state('');
+  let sortOptions = $state(['Datum', 'Prioriteit', 'Meest gebruikt']);
+  let selectedSort = $state('Datum');
+  let currentPage = $state(1);
 
   // <!--* Toolbar filter options
   const filters = [
@@ -20,36 +15,26 @@
     { value: 'videos', label: 'Video’s' },
   ];
 
-  // <!--* Toolbar sort options
-  let sortOptions = ['Datum', 'Prioriteit', 'Meest gebruikt'];
-  let selectedSort = $state('Prioriteit');
-
-  // <!--* Toolbar search handler
+  // <!--* Handlers
   function handleSearch(term) {
     search = term;
   }
 
-  // <!--* Toolbar filter handler
   function handleFilter(value) {
     selectedFilter = value;
   }
 
-   // <!--* Toolbar sort handler
-  //   function handleSort(option) {
-  //   selectedSort = option;
-  // }
-
-  // <!--* Pagination
-  let currentPage = $state(1);
-
   function handlePageChange(event) {
     currentPage = event.detail;
   }
+
 </script>
 <main>
   <article>
     <h1>Mediabibliotheek</h1>
-    <section>
+    <section
+      aria-label="Drag and drop area"
+    >
       <p>Kies bestanden om te uploaden</p>
       <PrimaryButton
         text="Kies uw bestanden"
@@ -57,28 +42,36 @@
         color="var(--warm-clay)"
         padding=".25rem .75rem"
       />
+      <input
+        type="file"
+        accept="image/*,video/*,application/pdf"
+        multiple
+        bind:this={fileInput}
+        onchange={handleFileSelect}
+      />
     </section>
   </article>
 
   <Toolbar>    
-    {#snippet search()}
-      <Search bindvalue={search} onSearch={(search) => handleSearch(search.detail.value)} />
+    {#snippet childA()}
+      <Search bindvalue={search} onsearch={(search) => handleSearch(search.detail.value)} />
     {/snippet}
       
-    {#snippet filter()}
-      <Filter label="Type Bestand" options={filters} selected={selectedFilter} onChange={handleFilter} />
+    {#snippet childB()}
+      <Filter label="Type Bestand" options={filters} selected={selectedFilter} onchange={handleFilter} />
     {/snippet}
 
-    {#snippet sort()}
+    {#snippet childC()}
       <Sort options={sortOptions} bind:selected={selectedSort}/>
     {/snippet}
   </Toolbar>
 
-  <ul>
-    <li>card</li>
-    <li>card</li>
-    <li>card</li>
-  </ul>
+    <ul>
+      <li>
+        <h2>jezus</h2>
+      </li>      
+    </ul>
+
 
   <Pagination
     totalItems={50}
@@ -126,6 +119,26 @@
       transform: translateZ(0);
       border-width: 0.9px;
     }
+  }
+
+  main article section.drag-over {           /* ✅ Added */
+    background-color: #eef6ff;
+    border-color: #0077ff;
+  }
+
+  main article section ul {                  /* ✅ Added */
+    list-style: none;
+    margin-top: 1rem;
+    padding: 0;
+    font-size: 0.875rem;
+    color: #333;
+  }
+
+  main article section ul li {               /* ✅ Added */
+    background: #f0f0f0;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
   }
 
   main article section p {
