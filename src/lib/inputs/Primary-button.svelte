@@ -1,5 +1,8 @@
 <script>
   import { Svg } from "$lib";
+  import { createEventDispatcher } from 'svelte';
+  
+  const dispatch = createEventDispatcher();
 
   let {
     // button props
@@ -9,8 +12,8 @@
     backgroundColor = "var(--pure-white)",
     padding = ".25rem .75rem",
     radius = "var(--radius-sm)",
+    handleClick = (event) => {dispatch('click', event);}
   } = $props();
-
 </script>
 
 <button
@@ -20,6 +23,7 @@
   --bg-color: {backgroundColor};
   --padding: {padding};
   --radius: {radius};"
+    onclick={handleClick}
 >
 {text}
 </button>
