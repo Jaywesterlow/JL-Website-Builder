@@ -1,35 +1,33 @@
 <script>
   import { Svg } from "$lib";
-  import { createEventDispatcher } from 'svelte';
-  
-  const dispatch = createEventDispatcher();
 
   let {
-    // button props
-    text = "Button text",
+    // link props
+    href = "#",
+    text = "Link text",
     label = "Enter Aria-Label",
     color = "var(--warm-clay)",
     backgroundColor = "var(--pure-white)",
     padding = ".25rem .75rem",
     radius = "var(--radius-sm)",
-    handleClick = (event) => {dispatch('click', event);}
   } = $props();
+
 </script>
 
-<button
+<a
   aria-label={label}
+  href={href}
   style="
   --color: {color};
   --bg-color: {backgroundColor};
   --padding: {padding};
   --radius: {radius};"
-    onclick={handleClick}
 >
 {text}
-</button>
+</a>
 
 <style>
-  button {
+  a {
     font-size: clamp(0.5rem, calc(0.5rem + .5cqi), 1rem);
     position: relative;
     display: flex;
@@ -45,7 +43,7 @@
     white-space: nowrap;
   }
 
-  button:hover {
+  a:hover {
     color: var(--bg-color);
     background-color: var(--color);
     transition: .2s all ease-in-out;
