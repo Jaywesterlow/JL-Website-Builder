@@ -183,7 +183,7 @@
     {/snippet}
   </Toolbar>
 
-  <ul>
+  <ul class="file-grid">
     <li><h2>image</h2></li>
     <li><h2>image</h2></li>
     <li><h2>image</h2></li>
