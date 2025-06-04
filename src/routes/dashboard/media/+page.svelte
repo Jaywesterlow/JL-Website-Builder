@@ -101,6 +101,7 @@
   // function handleUpload() {
   //   console.log('Uploading:', selectedFiles);
   // } 
+  
 </script>
 
 <main>
