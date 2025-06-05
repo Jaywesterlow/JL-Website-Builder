@@ -1,5 +1,5 @@
 <script>
-  import { PrimaryButton, Toolbar, Search, Filter, Sort, Pagination } from "$lib";
+  import { Button, Toolbar, Search, Filter, Sort, Pagination } from "$lib";
 
   // ─── Toolbar State ─────────────────────────────────────────
   let sortOptions = $state(["Datum", "Prioriteit", "Meest gebruikt"]);
@@ -13,7 +13,7 @@
   // ─── File Upload State ─────────────────────────────────────
   let fileInput = $state(null);
   let selectedFiles = $state([]);
-  let hasFiles = $derived(() => selectedFiles.length > 0);
+  let hasFiles = $derived(selectedFiles.length > 0);
   let dragActive = $state(false);
 
   // ─── Filter Options ────────────────────────────────────────
@@ -131,19 +131,21 @@
       {/if}
 
       <div role="group" aria-label="Upload buttons">
-        <PrimaryButton
+        <Button
           text="Kies uw bestanden"
           label="kies bestanden"
-          color="var(--warm-clay)"
+          color="var(--pure-white)"
+          bgColor="var(--copper-blush)"
           padding=".25rem .75rem"
           on:click={triggerFileDialog}
         />
 
         {#if hasFiles}
-          <PrimaryButton
+          <Button
             text="Upload"
             label="upload geselecteerde bestanden"
             color="var(--warm-clay)"
+            borderColor="var(--warm-clay)"
             padding=".25rem .75rem"
             on:click={handleUpload}
           />

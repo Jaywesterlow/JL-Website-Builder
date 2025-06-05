@@ -12,10 +12,10 @@ export { default as LoginLink } from './inputs/Login-link.svelte'
 // Dashboard / Navigation
 export { default as Pagination } from './navigation/Pagination.svelte'
 export { default as Toolbar } from './navigation/Toolbar.svelte'
-export { default as OptionSelect } from './navigation/Option-select.svelte'
+export { default as OptionSelect } from './navigation/lists/Option-select.svelte'
 
 // Dashboard / inputs
-export { default as PrimaryButton } from './inputs/Primary-button.svelte'
+export { default as Button } from './inputs/Button.svelte'
 export { default as PrimaryLink } from './inputs/Primary-link.svelte'
 
 export { default as Sort } from './inputs/Sort.svelte'
