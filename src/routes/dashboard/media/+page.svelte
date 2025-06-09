@@ -98,9 +98,9 @@
   }
 
   // ─── Future Upload Function (commented out) ────────────────
-  // function handleUpload() {
-  //   console.log('Uploading:', selectedFiles);
-  // } 
+  function handleUpload() {
+    console.log('Uploading:', selectedFiles);
+  }
 </script>
 
 <main>
