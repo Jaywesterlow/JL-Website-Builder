@@ -16,6 +16,7 @@
   const active = (path) => {
     return $page.url.pathname === path;
   }
+  
 </script>
 
 <main class:open={isNavOpen}>
@@ -52,6 +53,15 @@
         <span class="icon"><Svg name="settings" scale=".8" color="currentColor"/></span>
         Instellingen
       </a></li>
+
+	  <li>
+        <form method="POST" action="/dashboard?/logout" use:enhance>
+          <button type="submit" class="logout-button">
+            <span class="icon"><Svg name="logout" size="18" color="currentColor"/></span>
+            Logout
+          </button>
+        </form>
+      </li>
     </ul>
   </nav>
 
@@ -71,125 +81,140 @@
 </main>
 
 <style>
+main {
+  --nav-width: clamp(280px, 30vw + 5rem, 400px);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  transition: transform 0.5s ease-in-out;
 
-  main {
-    --nav-width: clamp(280px, 30vw + 5rem, 400px);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
-    transition: transform .5s ease-in-out;
-    &.open {
-      transform: translateX(var(--nav-width));
-    }
+  &.open {
+    transform: translateX(var(--nav-width));
   }
+}
 
-  main nav {
-    position: absolute;
-    background-color: var(--dusty-rose);
-    transform: translateX(-100%);
-    width: var(--nav-width);
-    z-index: 1;
+main nav {
+  position: absolute;
+  background-color: var(--dusty-rose);
+  transform: translateX(-100%);
+  width: var(--nav-width);
+  z-index: 1;
 
-    @media (min-width: 1024px) {
-      background-color: transparent;
-      position: relative;
-      transform: none;
-      padding: .25rem 0 .25rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1 0 20%;
-    }
-  }
-
-  main nav > button {
-    --radius: 1rem;
-    position: absolute;
-    top: -1px;
-    right: 1px;
-    transform: translateX(100%);
+  @media (min-width: 1024px) {
+    background-color: transparent;
+    position: relative;
+    transform: none;
+    padding: 0.25rem 0 0.25rem 1.25rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    background: var(--dusty-rose);
-    border: none;
-    border-radius: 0 0 var(--radius) 0;
-    cursor: pointer;
-    height: 3rem;
-    width: 3.5rem;
-    padding: .9rem;
-    z-index: 2;
+    flex: 1 0 20%;
+  }
+}
 
-    span {
-      width: 100%;
-      height: 3px;
-      background: var(--pure-white);
-      border-radius: 1rem;
-    }
+main nav > button {
+  --radius: 1rem;
+  position: absolute;
+  top: -1px;
+  right: 1px;
+  transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--dusty-rose);
+  border: none;
+  border-radius: 0 0 var(--radius) 0;
+  cursor: pointer;
+  height: 3rem;
+  width: 3.5rem;
+  padding: 0.9rem;
+  z-index: 2;
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      width: var(--radius);
-      aspect-ratio: 1;
-      background-image: 
-        radial-gradient(
-          circle at 100% 100%,
-          transparent var(--radius), 
-          var(--dusty-rose, white)
-          var(--radius));
-    }
-
-    &::before {
-      top: 0;
-      right: 0;
-      transform: translateX(100%);
-    }
-
-    &::after {
-      bottom: -1rem;
-      left: -1rem;
-      transform: translateX(100%);
-    }
-
-    @media (min-width: 1024px) {
-      display: none;
-    }
+  span {
+    width: 100%;
+    height: 3px;
+    background: var(--pure-white);
+    border-radius: 1rem;
   }
 
-  main nav > a {
-    width: 100%;
-    display: block;
-
-    img {
-      width: 80%;
-    }
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: var(--radius);
+    aspect-ratio: 1;
+    background-image: radial-gradient(
+      circle at 100% 100%,
+      transparent var(--radius),
+      var(--dusty-rose, white) var(--radius)
+    );
   }
-  
 
-  main nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0 0;
-    display: grid;
-    gap: 1rem;
-    width: 100%;
-    
-    li a {
+  &::before {
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  &::after {
+    bottom: -1rem;
+    left: -1rem;
+    transform: translateX(100%);
+  }
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+main nav > a {
+  width: 100%;
+  display: block;
+
+  img {
+    width: 80%;
+  }
+}
+
+main nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0 0;
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+
+  li {
+    form {
+      margin: 0;
+      padding: 0;
+      display: inline;
+    }
+
+    a,
+    button.logout-button {
       font-size: 1.5rem;
       font-weight: 200;
+      line-height: 1;
       color: var(--blush-veil);
       transition: all 0.3s ease-in-out;
       display: flex;
       align-items: center;
       gap: 0.5rem;
       width: fit-content;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: none;
+      appearance: none;
 
       span {
         color: var(--blush-veil);
         transition: all 0.3s ease-in-out;
+        display: inline-flex;
+        align-items: center;
       }
 
       &:hover,
@@ -203,55 +228,48 @@
       }
     }
   }
+}
 
-  main article {
-    position: relative;
-    background-color: var(--pure-white);
-    border-radius: 1.25rem;
-    flex: 0 1 100%;
+main article {
+  position: relative;
+  background-color: var(--pure-white);
+  border-radius: 1.25rem;
+  flex: 0 1 100%;
 
-    @media (min-width: 1024px) {
-      flex: 0 1 80%;
-    }
+  @media (min-width: 1024px) {
+    flex: 0 1 80%;
   }
+}
 
-  main article section {
-    position: absolute;
-    inset: 0;
-    padding: clamp(3.25rem, 10vw, 6rem) clamp(1.625rem, 5vw, 3.25rem) clamp(2rem, 6vw, 4.5rem);
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+main article section {
+  position: absolute;
+  inset: 0;
+  padding: clamp(3.25rem, 10vw, 6rem) clamp(1.625rem, 5vw, 3.25rem) clamp(2rem, 6vw, 4.5rem);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
 
-    @media (min-width: 1024px) {
-      padding: clamp(2.625rem, 8vw, 4.5rem) clamp(2rem, 6vw, 4rem) clamp(2rem, 5vw, 3.25rem);
-    }
+  @media (min-width: 1024px) {
+    padding: clamp(2.625rem, 8vw, 4.5rem) clamp(2rem, 6vw, 4rem) clamp(2rem, 5vw, 3.25rem);
   }
+}
 
-  main section.transitioning {
-    overflow: hidden;
-  }
-
-/* Scrollbar */
-/* @supports (scrollbar-color: var(--warm-clay) var(--rose)) {
-  * {
-    scrollbar-color: var(--warm-clay) var(--rose);
-    scrollbar-width: thin;
-  }
-} */
+main section.transitioning {
+  overflow: hidden;
+}
 
 ::-webkit-scrollbar {
-  width: .5rem;
+  width: 0.5rem;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 3px var(--cloudy-sky); 
+  box-shadow: inset 0 0 3px var(--cloudy-sky);
   border-radius: 10px;
   margin-block: 1rem;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  background: var(--rose); 
+  background: var(--rose);
   border-radius: var(--radius-lg);
 }
 
