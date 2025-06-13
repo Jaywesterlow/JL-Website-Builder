@@ -1,4 +1,3 @@
-// @ts-check
 import { test, expect } from '@playwright/test';
 
 test('Performance: JS size, compression, caching', async ({ page }) => {
@@ -31,5 +30,5 @@ test('Performance: JS size, compression, caching', async ({ page }) => {
     cacheableAssets
   });
 
-  expect(totalBytes).toBeGreaterThan(0); // voorbeeld: je kunt hier echte drempels instellen
+  expect(totalBytes).toBeGreaterThan(0);
 });

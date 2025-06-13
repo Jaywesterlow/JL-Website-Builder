@@ -58,7 +58,7 @@ export default defineConfig({
 
     // Smartphones
     { name: 'iPhone 16 Pro Max - Safari', use: { ...devices['iPhone 14 Pro Max'], browserName: 'webkit' } },
-    { name: 'iPhone 16 Pro Max - Chrome', use: { ...devices['iPhone 14 Pro Max'], browserName: 'webkit' } }, // Chrome on iOS uses WebKit
+    { name: 'iPhone 16 Pro Max - Chrome', use: { ...devices['iPhone 14 Pro Max'], browserName: 'webkit' } }, // Chrome on iOS = WebKit
 
     { name: 'iPhone 13 - Safari', use: { ...devices['iPhone 13 Pro'], browserName: 'webkit' } },
     { name: 'iPhone 13 - Chrome', use: { ...devices['iPhone 13 Pro'], browserName: 'webkit' } },
@@ -76,13 +76,10 @@ export default defineConfig({
     { name: 'Pixel 6a - Firefox', use: { ...devices['Pixel 5'], browserName: 'firefox' } },
 
     { name: 'Galaxy S25 Ultra - Chrome', use: { ...devices['Galaxy S9+'], browserName: 'chromium' } },
-    // { name: 'Galaxy S25 Ultra - Samsung Internet', use: { ...devices['Galaxy S9+'] } }, // Not supported
 
     { name: 'Galaxy S25 Edge - Chrome', use: { ...devices['Galaxy S9+'], browserName: 'chromium' } },
-    // { name: 'Galaxy S25 Edge - Samsung Internet', use: { ...devices['Galaxy S9+'] } }, // Not supported
 
     { name: 'Galaxy A14 - Chrome', use: { ...devices['Galaxy S9+'], browserName: 'chromium' } },
-    // { name: 'Galaxy A14 - Samsung Internet', use: { ...devices['Galaxy S9+'] } }, // Not supported
 
     { name: 'OnePlus 13 - Chrome', use: { ...devices['Pixel 5'], browserName: 'chromium' } },
     { name: 'OnePlus 13 - Firefox', use: { ...devices['Pixel 5'], browserName: 'firefox' } },
@@ -106,7 +103,7 @@ export default defineConfig({
 
     // Tablets
     { name: 'iPad Pro 12.9" - Safari', use: { ...devices['iPad Pro 11'], browserName: 'webkit' } },
-    { name: 'iPad Pro 12.9" - Chrome', use: { ...devices['iPad Pro 11'], browserName: 'webkit' } }, // Chrome on iOS uses WebKit
+    { name: 'iPad Pro 12.9" - Chrome', use: { ...devices['iPad Pro 11'], browserName: 'webkit' } }, // Chrome on iOS = WebKit
 
     { name: 'iPad 10th Gen - Safari', use: { ...devices['iPad (gen 7)'], browserName: 'webkit' } },
     { name: 'iPad 10th Gen - Chrome', use: { ...devices['iPad (gen 7)'], browserName: 'webkit' } },
@@ -115,16 +112,10 @@ export default defineConfig({
     { name: 'iPad Mini - Chrome', use: { ...devices['iPad Mini'], browserName: 'webkit' } },
 
     { name: 'Galaxy Tab S9+ - Chrome', use: { ...devices['Galaxy Tab S4'], browserName: 'chromium' } },
-    // { name: 'Galaxy Tab S9+ - Samsung Internet', use: { ...devices['Galaxy Tab S4'] } }, // Not supported
 
     { name: 'Lenovo Tab M10 - Chrome', use: { ...devices['Galaxy Tab S4'], browserName: 'chromium' } },
     { name: 'Lenovo Tab M10 - Firefox', use: { ...devices['Galaxy Tab S4'], browserName: 'firefox' } },
 
     { name: 'Amazon Fire HD 10 - Firefox', use: { ...devices['Galaxy Tab S4'], browserName: 'firefox' } },
-    // { name: 'Amazon Fire HD 10 - Silk', use: { ...devices['Galaxy Tab S4'] } }, // Not supported
-
-    // Other
-    // Smart TVs, Touchscreen Laptops, Silk, Samsung Internet, Opera Mini, etc. are not supported by Playwright.
-    // For these, run basic layout tests manually or with a different tool.
   ],
 });
