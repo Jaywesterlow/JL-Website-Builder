@@ -235,10 +235,11 @@
   </section>
   
   <Pagination
-  totalItems={50}
-  itemsPerPage={10}
-  {currentPage}
-  on:pageChange={handlePageChange} />
+    totalItems={50}
+    itemsPerPage={10}
+    {currentPage}
+    on:pageChange={handlePageChange}
+  />
 </main>
 
 
@@ -249,7 +250,7 @@
     gap: 1.5rem;
 
     @media (min-width: 1024px) {
-      gap: 3rem;
+      gap: 2rem;
     }
   }
 
@@ -259,12 +260,12 @@
     justify-content: space-between;
 
     & h1 {
-      font-size: 2rem; /* Added to reduce heading size */
+      font-size: 2rem;
     }
 
     @media (min-width: 1024px) {
       justify-content: flex-start;
-      gap: 3rem;
+      gap: 1.5rem;
     }
   }
 

@@ -1,5 +1,4 @@
-// Reexport your entry components here
-
+// Media
 export { default as Svg } from './media/Svg.svelte'
 
 // Login

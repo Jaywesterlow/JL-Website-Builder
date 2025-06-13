@@ -40,7 +40,8 @@ Daarnaast is het belangrijk om consistentie te waarborgen in de gebruikerservari
 ### Naamgeving & Structuur
 
 - Gebruik duidelijke, beschrijvende namen voor variabelen, functies en bestanden.
-- Bestands- en componentnamen gebruiken `PascalCase`.
+- Functie- en componentnamen gebruiken `camelCase`.
+- CSS variabelen en bestandsnamen gebruiken `kebab-case`.
 - Houd functies klein en specifiek.
 - Orden code binnen bestanden op consistente wijze:
   1. Imports
@@ -55,7 +56,7 @@ Daarnaast is het belangrijk om consistentie te waarborgen in de gebruikerservari
 - Gebruik **ESLint** en **Prettier** voor automatische codeformattering en linting.
 - Consistente indentatie (2 spaties).
 - Geen inline styles (tenzij functioneel nodig).
-- Geen classes (tenzij functioneel nodig).
+- Zo min mogelijk classes (tenzij functioneel nodig).
 - Specifieke selectors voor styling om conflicts te vermijden.
 
 ### Componentontwikkeling
@@ -82,6 +83,7 @@ Daarnaast is het belangrijk om consistentie te waarborgen in de gebruikerservari
 ## Performance
 
 - Importeer enkel wat nodig is.
+- vermijdt iconen als losse bestanden, maak gebruik van het `Svg.svelte` component
 - Gebruik lazy-loading voor zwaardere componenten of routes.
 - Optimaliseer afbeeldingen (moderne formaten, juiste afmetingen, lazy loading).
 - Vermijd onnodige renders of grote afhankelijkheden.
@@ -100,14 +102,13 @@ Daarnaast is het belangrijk om consistentie te waarborgen in de gebruikerservari
 
 ### E2E-tests
 
-- Gebruik Playwright voor toegankelijkheid en performance.
-- Test op verschillende browsers en devices.
+- Gebruik Playwright voor toegankelijkheid en performance (Test op verschillende browsers en devices).
 
 ### Voorwaarden voor een merge
 
 - Alle tests moeten slagen, anders duidelijk aangegeven in PR.
 - Geen nieuwe errors.
-- Geen console.logs, TODO’s of tijdelijke mocks in PR’s.
+- Geen console.logs, TODO’s of tijdelijke code in PR’s.
 
 ---
 
@@ -122,17 +123,19 @@ Daarnaast is het belangrijk om consistentie te waarborgen in de gebruikerservari
 
 ---
 
-## Gebruik van Better Comments
+## Gebruik van comments
 
-De Better Comments extensie (VS Code) wordt gebruikt om structuur en duidelijkheid te behouden in commentaar. Hanteer deze conventies:
+De Better Comments extensie (VS Code) wordt gebruikt om structuur en duidelijkheid te behouden in commentaar **alleen tijdens development** . Hanteer deze conventies:
 
-```ts
+```
 // ! Belangrijk: moet refactored worden bij herstructurering van form
 // ? Zou deze validatie ook op veldniveau moeten komen?
 // TODO: Voeg fallback toe voor API-timeouts
 // FIXME: Crasht bij null response (zie issue #14)
 // NOTE: Deze component is alleen zichtbaar bij admin users
+```
 
+Gebruik blijvende comments: "// ─── Beschrijvende comments ──────────────────────────────" bij grotere bestanden.
 
 ---
 
@@ -140,8 +143,9 @@ De Better Comments extensie (VS Code) wordt gebruikt om structuur en duidelijkhe
 
 Als ik verder zouden bouwen, zou we beginnen met het volgende:
 
-1. Samen met het team brainstormen over het uitwerken van de andere dashboard pagina's (Dashboard, Instellingen, Account, etc.) en nieuwe features die toegevoegd kunnen worden.  
-2. Een projectbord opstellen en de taken verdelen.
+1. Afmaken van de MVP (Pagina's toevoegen, menu's toevoegen, pagina editor)
+2. Samen met het team brainstormen over het uitwerken van de andere dashboard pagina's (Dashboard, Instellingen, Account, etc.) en nieuwe features die toegevoegd kunnen worden.  
+3. Een projectbord opstellen en de taken verdelen.
 
 ---
 
