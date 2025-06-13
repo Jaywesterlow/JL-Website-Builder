@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
 /**
@@ -56,7 +55,7 @@ export default defineConfig({
 
     { name: 'Chromebook - Chrome', use: { ...devices['Desktop Chrome'] } },
 
-    // Smartphones
+    // Mobile
     { name: 'iPhone 16 Pro Max - Safari', use: { ...devices['iPhone 14 Pro Max'], browserName: 'webkit' } },
     { name: 'iPhone 16 Pro Max - Chrome', use: { ...devices['iPhone 14 Pro Max'], browserName: 'webkit' } }, // Chrome on iOS = WebKit
 
