@@ -24,12 +24,14 @@ jobs:
       - name: Wait for Vercel preview deployment
         id: get-preview-url
         run: |
-          echo "🔍 Waiting for Vercel deployment..."
+          echo "🔍 Waiting for Vercel deployment via API..."
+
           for i in {1..30}; do
-            DEPLOYMENT_URL=$(npx vercel@31.2.0 list \
-              --scope jaywesterlows-projects \
-              --token=${{ secrets.VERCEL_TOKEN }} \
-              --json | jq -r '.[] | select(.state=="READY" and .meta.githubCommitRef=="'${{ github.head_ref }}'") | .url' | head -n 1)
+            RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+              "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}&state=READY")
+
+            DEPLOYMENT_URL=$(echo "$RESPONSE" | jq -r \
+              '.deployments[] | select(.meta.githubCommitRef=="'${{ github.head_ref }}'") | .url' | head -n 1)
 
             if [ -n "$DEPLOYMENT_URL" ]; then
               echo "✅ Deployment ready: https://$DEPLOYMENT_URL"
