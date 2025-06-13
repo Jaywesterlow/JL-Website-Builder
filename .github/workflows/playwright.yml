@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "🔍 Waiting for Vercel deployment..."
           for i in {1..30}; do
-            DEPLOYMENT_URL=$(npx vercel list ${{ secrets.VERCEL_PROJECT_ID }} \
+            DEPLOYMENT_URL=$(npx vercel@31.2.0 list \
               --scope jaywesterlows-projects \
               --token=${{ secrets.VERCEL_TOKEN }} \
               --json | jq -r '.[] | select(.state=="READY" and .meta.githubCommitRef=="'${{ github.head_ref }}'") | .url' | head -n 1)
@@ -49,7 +49,7 @@ jobs:
           BASE_URL: ${{ steps.get-preview-url.outputs.DEPLOYMENT_URL }}
         run: |
           echo "🌐 Running tests on $BASE_URL"
-          run: npx playwright test
+          npx playwright test
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
