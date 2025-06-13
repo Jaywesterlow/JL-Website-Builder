@@ -55,7 +55,7 @@
       </a></li>
 
 	  <li>
-        <form method="POST" action="/dashboard?/logout" use:enhance>
+        <form method="POST" action="/dashboard?/logout">
           <button type="submit" class="logout-button">
             <span class="icon"><Svg name="logout" size="18" color="currentColor"/></span>
             Logout
